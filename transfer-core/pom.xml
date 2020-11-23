@@ -4,13 +4,13 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <parent>
         <artifactId>quick-chinese-transfer</artifactId>
-        <groupId>com.liuyueyi.quick</groupId>
+        <groupId>com.github.liuyueyi</groupId>
         <version>0.1</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
     <version>0.1</version>
 
-    <artifactId>transfer-core</artifactId>
+    <artifactId>quick-transfer-core</artifactId>
 
     <developers>
         <developer>

@@ -1,6 +1,12 @@
 quick-chinese-transfer
 ---
 
+[![Builder](https://travis-ci.org/liuyueyi/quick-chinese-transfer.svg?branch=master)](https://travis-ci.org/liuyueyi/quick-chinese-transfer)
+[![JitPack](https://jitpack.io/v/liuyueyi/quick-chinese-transfer.svg)](https://jitpack.io/#liuyueyi/quick-chinese-transfer)
+[![codecov](https://codecov.io/gh/liuyueyi/quick-chinese-transfer/branch/master/graph/badge.svg)](https://codecov.io/gh/liuyueyi/quick-chinese-transfer)
+[![Average time to resolve an issue](http://isitmaintained.com/badge/resolution/liuyueyi/quick-chinese-transfer.svg)](http://isitmaintained.com/project/liuyueyi/quick-chinese-transfer "Average time to resolve an issue")
+[![Percentage of issues still open](http://isitmaintained.com/badge/open/liuyueyi/quick-chinese-transfer.svg)](http://isitmaintained.com/project/liuyueyi/quick-chinese-transfer "Percentage of issues still open")
+
 简体中文，繁体中文，香港繁体，台湾繁体 相互转换的Java库
 
 本项目主要来自于 
@@ -15,9 +21,16 @@ quick-chinese-transfer
 **maven依赖**
 
 ```xml
+<repositories>
+    <repository>
+        <id>jitpack.io</id>
+        <url>https://jitpack.io</url>
+    </repository>
+</repositories>
+
 <dependency>
-    <groupId>com.liuyueyi.quick</groupId>
-    <artifactId>transfer-core</artifactId>
+    <groupId>com.github.liuyueyi</groupId>
+    <artifactId>quick-transfer-core</artifactId>
     <version>0.1</version>
 </dependency>
 ```
@@ -27,7 +40,7 @@ quick-chinese-transfer
 ```java
 @Test
 public void testTrans() {
-    String text = "乾坤无极，急急如律令，太阳很大，天气很好，欢迎关注一灰灰blog";
+    String text = " 这斜月三星洞…… 长寿面，孙悟空，猪八戒，唐僧，沙和尚，白龙马，李靖，托塔天王, 戏说西游";
     String out = ChineseUtils.s2t(text);
     System.out.println("s2t -->" + out);
     String hkOut = ChineseUtils.s2hk(text);
@@ -40,4 +53,15 @@ public void testTrans() {
     System.out.println("hk2s -->" + ChineseUtils.hk2s(hkOut));
     System.out.println("tw2s -->" + ChineseUtils.tw2s(twOut));
 }
+```
+
+输出结果如下
+
+```text
+s2t --> 這斜月三星洞…… 長壽麪，孫悟空，豬八戒，唐僧，沙和尚，白龍馬，李靖，托塔天王, 戲說西遊
+s2hk --> 這斜月三星洞…… 長壽麪，孫悟空，豬八戒，唐僧，沙和尚，白龍馬，李靖，托塔天王, 戲説西遊
+s2tw -->  這斜月三星洞…… 長壽麵，孫悟空，豬八戒，唐僧，沙和尚，白龍馬，李靖，托塔天王, 戲說西遊
+t2s --> 这斜月三星洞…… 长寿面，孙悟空，猪八戒，唐僧，沙和尚，白龙马，李靖，托塔天王, 戏说西游
+hk2s --> 这斜月三星洞…… 长寿面，孙悟空，猪八戒，唐僧，沙和尚，白龙马，李靖，托塔天王, 戏说西游
+tw2s --> 这斜月三星洞…… 长寿面，孙悟空，猪八戒，唐僧，沙和尚，白龙马，李靖，托塔天王, 戏说西游
 ```
