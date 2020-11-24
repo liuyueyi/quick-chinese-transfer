@@ -29,11 +29,27 @@ quick-chinese-transfer
 </repositories>
 
 <dependency>
-    <groupId>com.github.liuyueyi</groupId>
+    <groupId>com.github.liuyueyi.quick-chinese-transfer</groupId>
     <artifactId>quick-transfer-core</artifactId>
-    <version>0.1</version>
+    <version>0.1-s</version>
 </dependency>
 ```
+
+**gradle依赖**
+
+```gradle
+allprojects {
+	repositories {
+		...
+		maven { url 'https://jitpack.io' }
+	}
+}
+
+dependencies {
+    implementation 'com.github.liuyueyi.quick-chinese-transfer:quick-transfer-core:0.1-s'
+}
+```
+
 
 **测试case**
 
