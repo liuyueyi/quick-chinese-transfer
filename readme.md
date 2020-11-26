@@ -22,7 +22,7 @@ quick-chinese-transfer
 
 中央仓库导入依赖
 
-```pom
+```xml
 <dependency>
     <groupId>com.github.liuyueyi</groupId>
     <artifactId>quick-transfer-core</artifactId>
