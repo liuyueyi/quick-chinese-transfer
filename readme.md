@@ -20,6 +20,18 @@ quick-chinese-transfer
 
 **maven依赖**
 
+中央仓库导入依赖
+
+```pom
+<dependency>
+    <groupId>com.github.liuyueyi</groupId>
+    <artifactId>quick-transfer-core</artifactId>
+    <version>0.1</version>
+</dependency>
+```
+
+使用jitpack导入依赖
+
 ```xml
 <repositories>
     <repository>
