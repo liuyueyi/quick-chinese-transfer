@@ -45,7 +45,11 @@ public class BasicDictionary {
     }
 
     public char convert(char ch) {
-        return charMap.getOrDefault(ch, ch);
+        Character tmp = charMap.get(ch);
+        if (tmp == null) {
+            return ch;
+        }
+        return tmp;
     }
 
     public void convert(Reader reader, Writer writer) throws IOException {
