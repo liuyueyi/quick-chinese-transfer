@@ -10,6 +10,7 @@ import java.util.Map;
  * @author yihui
  */
 public class BasicDictionary {
+    protected String name;
 
     /**
      * chars
@@ -38,7 +39,8 @@ public class BasicDictionary {
         return maxLen;
     }
 
-    public BasicDictionary(Map<Character, Character> chars, Trie<String> dict, int maxLen) {
+    public BasicDictionary(String name, Map<Character, Character> chars, Trie<String> dict, int maxLen) {
+        this.name = name;
         this.charMap = chars;
         this.dict = dict;
         this.maxLen = maxLen;

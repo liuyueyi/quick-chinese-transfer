@@ -16,14 +16,15 @@ public class SecondParserDictionary extends BasicDictionary {
 
     private BasicDictionary parentDictionary;
 
-    public SecondParserDictionary(BasicDictionary parentDictionary, Map<Character, Character> chars, Trie<String> dict, int maxLen) {
-        super(chars, dict, maxLen);
+    public SecondParserDictionary(String name, BasicDictionary parentDictionary, Map<Character, Character> chars, Trie<String> dict, int maxLen) {
+        super(name, chars, dict, maxLen);
         this.parentDictionary = parentDictionary;
     }
 
     @Override
     public String convert(String str) {
-        str = parentDictionary.convert(str);
-        return super.convert(str);
+        // 从子节点往上递归转换
+        str = super.convert(str);
+        return parentDictionary.convert(str);
     }
 }

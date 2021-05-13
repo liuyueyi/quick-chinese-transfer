@@ -85,11 +85,11 @@ public class DictionaryFactory {
             }
         }
 
-        return new BasicDictionary(charMap, dict, maxLen);
+        return new BasicDictionary(mappingFile, charMap, dict, maxLen);
     }
 
     public static SecondParserDictionary loadSecondDictionary(BasicDictionary parent, String mappingFile, boolean reverse) {
         BasicDictionary current = loadDictionary(mappingFile, reverse);
-        return new SecondParserDictionary(parent, current.getChars(), current.getDict(), current.getMaxLen());
+        return new SecondParserDictionary(mappingFile, parent, current.getChars(), current.getDict(), current.getMaxLen());
     }
 }
