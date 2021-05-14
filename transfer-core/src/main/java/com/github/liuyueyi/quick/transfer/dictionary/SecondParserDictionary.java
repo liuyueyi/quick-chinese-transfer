@@ -13,18 +13,29 @@ import java.util.Map;
  * @date 20/11/23
  */
 public class SecondParserDictionary extends BasicDictionary {
+    private boolean reverse;
 
+    // t2s
+    // s2t
     private BasicDictionary parentDictionary;
 
-    public SecondParserDictionary(String name, BasicDictionary parentDictionary, Map<Character, Character> chars, Trie<String> dict, int maxLen) {
+    public SecondParserDictionary(String name, BasicDictionary parentDictionary, Map<Character, Character> chars,
+                                  Trie<String> dict, int maxLen, boolean reverse) {
         super(name, chars, dict, maxLen);
         this.parentDictionary = parentDictionary;
+        this.reverse = reverse;
     }
 
     @Override
     public String convert(String str) {
-        // 从子节点往上递归转换
-        str = super.convert(str);
-        return parentDictionary.convert(str);
+        if (reverse) {
+            // hk -> t -> s
+            str = super.convert(str);
+            return parentDictionary.convert(str);
+        } else {
+            // s -> t -> hk
+            str = parentDictionary.convert(str);
+            return super.convert(str);
+        }
     }
 }
