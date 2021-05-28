@@ -8,7 +8,7 @@ import org.junit.Test;
 
 public class TestLoader {
 
-    String text = "这斜月三星洞…… 长寿面，孙悟空，猪八戒，唐僧，沙和尚，白龙马，李靖，托塔天王, 戏说西游，许多人都这样说，收拾一下，拾金不昧；纔=才";
+    String text = "这斜月三星洞…… 长寿面，孙悟空，猪八戒，唐僧，沙和尚，白龙马，李靖，托塔天王, 戏说西游，许多人都这样说，收拾一下，拾金不昧；纔=才； 奔驰, 定址，奶油，黄油";
 
     @Test
     public void testTransfer() {
@@ -23,6 +23,9 @@ public class TestLoader {
 
     @Test
     public void testTrans() {
+        // 简体中文，直接代用 繁体转简体
+        System.out.println("s2s -->" + ChineseUtils.t2s(text));
+
         String out = ChineseUtils.s2t(text);
         System.out.println("s2t -->" + out);
         String hkOut = ChineseUtils.s2hk(text);
