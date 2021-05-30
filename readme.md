@@ -26,7 +26,7 @@ quick-chinese-transfer
 <dependency>
     <groupId>com.github.liuyueyi</groupId>
     <artifactId>quick-transfer-core</artifactId>
-    <version>0.2.0</version>
+    <version>0.2.1</version>
 </dependency>
 ```
 
@@ -49,7 +49,7 @@ implementation 'com.github.liuyueyi:quick-transfer-core:0.2.0'
 <dependency>
     <groupId>com.github.liuyueyi.quick-chinese-transfer</groupId>
     <artifactId>quick-transfer-core</artifactId>
-    <version>0.2.0</version>
+    <version>0.2.1</version>
 </dependency>
 ```
 
@@ -99,3 +99,13 @@ t2s -->这斜月三星洞…… 长寿面，孙悟空，猪八戒，唐僧，沙
 hk2s -->这斜月三星洞…… 长寿面，孙悟空，猪八戒，唐僧，沙和尚，白龙马，李靖，托塔天王, 戏说西游，许多人都这样说，收拾一下，拾金不昧；才=才
 tw2s -->这斜月三星洞…… 长寿面，孙悟空，猪八戒，唐僧，沙和尚，白龙马，李靖，托塔天王, 戏说西游，许多人都这样说，收拾一下，拾金不昧；才=才
 ```
+
+版本说明
+---
+
+- 0.1.0
+    - 简繁转换
+- 0.2.0
+    - 修复链式转换
+- 0.2.1
+    - 繁转简： fix 奔驰，奶油，黄油转换异常 
