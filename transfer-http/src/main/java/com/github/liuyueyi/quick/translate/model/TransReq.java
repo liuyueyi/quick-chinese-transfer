@@ -35,51 +35,71 @@ public class TransReq {
      */
     private String sign;
 
+    /**
+     * get or post
+     */
+    private HttpMethod method;
+
     public String getSourceLanguage() {
         return sourceLanguage;
     }
 
-    public void setSourceLanguage(String sourceLanguage) {
+    public TransReq setSourceLanguage(String sourceLanguage) {
         this.sourceLanguage = sourceLanguage;
+        return this;
     }
 
     public String getTargetLanguage() {
         return targetLanguage;
     }
 
-    public void setTargetLanguage(String targetLanguage) {
+    public TransReq setTargetLanguage(String targetLanguage) {
         this.targetLanguage = targetLanguage;
+        return this;
     }
 
     public String getContent() {
         return content;
     }
 
-    public void setContent(String content) {
+    public TransReq setContent(String content) {
         this.content = content;
+        return this;
     }
 
     public String getAppId() {
         return appId;
     }
 
-    public void setAppId(String appId) {
+    public TransReq setAppId(String appId) {
         this.appId = appId;
+        return this;
     }
 
     public String getSalt() {
         return salt;
     }
 
-    public void setSalt(String salt) {
+    public TransReq setSalt(String salt) {
         this.salt = salt;
+        return this;
     }
 
     public String getSign() {
         return sign;
     }
 
-    public void setSign(String sign) {
+    public TransReq setSign(String sign) {
         this.sign = sign;
+        return this;
+    }
+
+    public HttpMethod getMethod() {
+        return method;
+    }
+
+    public TransReq setMethod(HttpMethod method) {
+        this.method = method;
+        return this;
     }
 }
