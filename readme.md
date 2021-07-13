@@ -109,3 +109,6 @@ tw2s -->这斜月三星洞…… 长寿面，孙悟空，猪八戒，唐僧，�
     - 修复链式转换
 - 0.2.1
     - 繁转简： fix 奔驰，奶油，黄油转换异常 
+- 0.2.2
+    - 繁转简
+       - [#3 克拉转成克拉布](https://github.com/liuyueyi/quick-chinese-transfer/issues/3)     
