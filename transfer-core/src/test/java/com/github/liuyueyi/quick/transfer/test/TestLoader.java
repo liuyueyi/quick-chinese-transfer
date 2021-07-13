@@ -9,6 +9,10 @@ import org.junit.Test;
 public class TestLoader {
 
     String text = "这斜月三星洞…… 长寿面，孙悟空，猪八戒，唐僧，沙和尚，白龙马，李靖，托塔天王, 戏说西游，许多人都这样说，收拾一下，拾金不昧；纔=才； 奔驰, 定址，奶油，黄油";
+    {
+        // issue #3
+        text += "，查克拉";
+    }
 
     @Test
     public void testTransfer() {
