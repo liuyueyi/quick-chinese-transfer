@@ -112,3 +112,6 @@ tw2s -->这斜月三星洞…… 长寿面，孙悟空，猪八戒，唐僧，�
 - 0.2.2
     - 繁转简
        - [#3 克拉转成克拉布](https://github.com/liuyueyi/quick-chinese-transfer/issues/3)     
+- 0.2.3
+    - 繁体转健体
+       - [#4 乾 繁转简错误](https://github.com/liuyueyi/quick-chinese-transfer/issues/4)]
