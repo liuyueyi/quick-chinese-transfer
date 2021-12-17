@@ -26,7 +26,7 @@ quick-chinese-transfer
 <dependency>
     <groupId>com.github.liuyueyi</groupId>
     <artifactId>quick-transfer-core</artifactId>
-    <version>0.2.1</version>
+    <version>0.2.4</version>
 </dependency>
 ```
 
@@ -49,7 +49,7 @@ implementation 'com.github.liuyueyi:quick-transfer-core:0.2.0'
 <dependency>
     <groupId>com.github.liuyueyi.quick-chinese-transfer</groupId>
     <artifactId>quick-transfer-core</artifactId>
-    <version>0.2.1</version>
+    <version>0.2.4</version>
 </dependency>
 ```
 
@@ -64,7 +64,7 @@ allprojects {
 }
 
 dependencies {
-    implementation 'com.github.liuyueyi.quick-chinese-transfer:quick-transfer-core:0.2.0'
+    implementation 'com.github.liuyueyi.quick-chinese-transfer:quick-transfer-core:0.2.4'
 }
 ```
 
@@ -113,5 +113,8 @@ tw2s -->这斜月三星洞…… 长寿面，孙悟空，猪八戒，唐僧，�
     - 繁转简
        - [#3 克拉转成克拉布](https://github.com/liuyueyi/quick-chinese-transfer/issues/3)     
 - 0.2.3
-    - 繁体转健体
+    - 繁体转简体
        - [#4 乾 繁转简错误](https://github.com/liuyueyi/quick-chinese-transfer/issues/4)]
+- 0.2.4
+    - 繁体转简体
+        - [#5 骼 繁转简错误](https://github.com/liuyueyi/quick-chinese-transfer/issues/5)]

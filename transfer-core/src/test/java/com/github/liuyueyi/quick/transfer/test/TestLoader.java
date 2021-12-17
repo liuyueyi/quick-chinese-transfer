@@ -12,6 +12,10 @@ public class TestLoader {
     {
         // issue #3
         text += "，查克拉";
+        // issue #4
+        text += "，孙乾";
+        // issue #5
+        text += "，骨骼";
     }
 
     @Test
