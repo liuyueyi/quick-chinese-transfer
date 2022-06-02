@@ -2,6 +2,7 @@ quick-chinese-transfer
 ---
 
 [![Builder](https://travis-ci.org/liuyueyi/quick-chinese-transfer.svg?branch=master)](https://travis-ci.org/liuyueyi/quick-chinese-transfer)
+[![Maven Central with version prefix filter](https://img.shields.io/maven-central/v/com.github.liuyueyi/quick-transfer-core.svg)](https://search.maven.org/search?q=a:quick-transfer-core)
 [![JitPack](https://jitpack.io/v/liuyueyi/quick-chinese-transfer.svg)](https://jitpack.io/#liuyueyi/quick-chinese-transfer)
 [![codecov](https://codecov.io/gh/liuyueyi/quick-chinese-transfer/branch/master/graph/badge.svg)](https://codecov.io/gh/liuyueyi/quick-chinese-transfer)
 [![Average time to resolve an issue](http://isitmaintained.com/badge/resolution/liuyueyi/quick-chinese-transfer.svg)](http://isitmaintained.com/project/liuyueyi/quick-chinese-transfer "Average time to resolve an issue")
@@ -33,7 +34,7 @@ quick-chinese-transfer
 gradle
 
 ```gradle
-implementation 'com.github.liuyueyi:quick-transfer-core:0.2.0'
+implementation 'com.github.liuyueyi:quick-transfer-core:0.2.4'
 ```
 
 使用jitpack导入依赖
