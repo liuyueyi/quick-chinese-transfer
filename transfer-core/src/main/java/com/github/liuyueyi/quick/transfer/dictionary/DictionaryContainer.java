@@ -1,5 +1,7 @@
 package com.github.liuyueyi.quick.transfer.dictionary;
 
+import com.github.liuyueyi.quick.transfer.constants.TransType;
+
 import java.util.HashMap;
 import java.util.Map;
 
@@ -8,9 +10,9 @@ import java.util.Map;
  * @date 20/11/23
  */
 public class DictionaryContainer {
-    private static DictionaryContainer instance;
+    private static volatile DictionaryContainer instance;
 
-    private Map<String, BasicDictionary> dictionaryMap = new HashMap<>(8, 1);
+    private final Map<String, BasicDictionary> dictionaryMap = new HashMap<>(8, 1);
 
     private DictionaryContainer() {
     }
@@ -26,42 +28,66 @@ public class DictionaryContainer {
         return instance;
     }
 
+    /**
+     * @param key
+     * @return
+     * @see DictionaryContainer#getDictionary(TransType)
+     */
+    @Deprecated
     public BasicDictionary getDictionary(String key) {
-        BasicDictionary dictionary = dictionaryMap.get(key);
+        return getDictionary(TransType.typeOf(key));
+    }
+
+    /**
+     * 获取词典
+     *
+     * @param transType
+     * @return
+     */
+    public BasicDictionary getDictionary(TransType transType) {
+        BasicDictionary dictionary = dictionaryMap.get(transType.getType());
         if (dictionary != null) {
             return dictionary;
         }
 
         synchronized (this) {
-            dictionary = dictionaryMap.get(key);
+            dictionary = dictionaryMap.get(transType.getType());
             if (dictionary != null) {
                 return dictionary;
             }
-            switch (key) {
-                case "s2t":
+            switch (transType) {
+                case SIMPLE_TO_TRADITIONAL:
                     dictionary = DictionaryFactory.loadDictionary("tc/s2t.txt", false);
                     break;
-                case "s2hk":
-                    dictionary = DictionaryFactory.loadSecondDictionary(getDictionary("s2t"), "tc/t2hk.txt", false);
+                case SIMPLE_TO_HONGKONG:
+                    dictionary = DictionaryFactory.loadSecondDictionary(getDictionary(TransType.SIMPLE_TO_TRADITIONAL), "tc/t2hk.txt", false);
                     break;
-                case "s2tw":
-                    dictionary = DictionaryFactory.loadSecondDictionary(getDictionary("s2t"), "tc/t2tw.txt", false);
+                case SIMPLE_TO_TAIWAN:
+                    dictionary = DictionaryFactory.loadSecondDictionary(getDictionary(TransType.SIMPLE_TO_TRADITIONAL), "tc/t2tw.txt", false);
                     break;
-                case "t2s":
+                case TRADITIONAL_TO_SIMPLE:
                     dictionary = DictionaryFactory.loadDictionary("tc/t2s.txt", false);
                     break;
-                case "hk2s":
-                    dictionary = DictionaryFactory.loadSecondDictionary(getDictionary("t2s"), "tc/t2hk.txt", true);
+                case HONGKONG_TO_SIMPLE:
+                    dictionary = DictionaryFactory.loadSecondDictionary(getDictionary(TransType.TRADITIONAL_TO_SIMPLE), "tc/t2hk.txt", true);
                     break;
-                case "tw2s":
-                    dictionary = DictionaryFactory.loadSecondDictionary(getDictionary("t2s"), "tc/t2tw.txt", true);
+                case TAIWAN_TO_SIMPLE:
+                    dictionary = DictionaryFactory.loadSecondDictionary(getDictionary(TransType.TRADITIONAL_TO_SIMPLE), "tc/t2tw.txt", true);
                     break;
                 default:
-                    throw new IllegalArgumentException("暂不支持转化方式" + key);
+                    throw new IllegalArgumentException("暂不支持转化方式" + transType);
             }
+            dictionaryMap.put(transType.getType(), dictionary);
         }
-        dictionaryMap.put(key, dictionary);
         return dictionary;
     }
 
+    /**
+     * 卸载字典，减少内存占用开销
+     *
+     * @return
+     */
+    public void unloadDictionary(TransType transType) {
+        dictionaryMap.remove(transType.getType());
+    }
 }

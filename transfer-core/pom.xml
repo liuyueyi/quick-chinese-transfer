@@ -8,7 +8,7 @@
         <version>0.1</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
-    <version>0.2.4</version>
+    <version>0.2.5</version>
 
     <artifactId>quick-transfer-core</artifactId>
 
@@ -25,13 +25,4 @@
             <url>http://blog.hhui.top</url>
         </developer>
     </developers>
-
-    <dependencies>
-        <dependency>
-            <groupId>junit</groupId>
-            <artifactId>junit</artifactId>
-            <version>4.13</version>
-            <scope>test</scope>
-        </dependency>
-    </dependencies>
 </project>

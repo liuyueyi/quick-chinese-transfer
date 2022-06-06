@@ -15,6 +15,9 @@ quick-chinese-transfer
 - [https://github.com/hankcs/HanLP](https://github.com/hankcs/HanLP)
 - [https://github.com/luhuiguo/chinese-utils](https://github.com/luhuiguo/chinese-utils)
 
+词典更新维护来自：
+
+- [https://github.com/hankcs/HanLP/tree/1.x/data/dictionary/tc](https://github.com/hankcs/HanLP/tree/1.x/data/dictionary/tc)
 
 使用姿势
 ---
@@ -24,20 +27,22 @@ quick-chinese-transfer
 中央仓库导入依赖
 
 ```xml
+<!-- https://mvnrepository.com/artifact/com.github.liuyueyi/quick-transfer-core -->
 <dependency>
     <groupId>com.github.liuyueyi</groupId>
     <artifactId>quick-transfer-core</artifactId>
-    <version>0.2.4</version>
+    <version>0.2.5</version>
 </dependency>
 ```
 
-gradle
+**中央仓库 gradle**
 
 ```gradle
-implementation 'com.github.liuyueyi:quick-transfer-core:0.2.4'
+// https://mvnrepository.com/artifact/com.github.liuyueyi/quick-transfer-core
+implementation 'com.github.liuyueyi:quick-transfer-core:0.2.5'
 ```
 
-使用jitpack导入依赖
+**使用jitpack导入依赖**
 
 ```xml
 <repositories>
@@ -50,7 +55,7 @@ implementation 'com.github.liuyueyi:quick-transfer-core:0.2.4'
 <dependency>
     <groupId>com.github.liuyueyi.quick-chinese-transfer</groupId>
     <artifactId>quick-transfer-core</artifactId>
-    <version>0.2.4</version>
+    <version>0.2.5</version>
 </dependency>
 ```
 
@@ -65,15 +70,14 @@ allprojects {
 }
 
 dependencies {
-    implementation 'com.github.liuyueyi.quick-chinese-transfer:quick-transfer-core:0.2.4'
+    implementation 'com.github.liuyueyi.quick-chinese-transfer:quick-transfer-core:0.2.5'
 }
 ```
 
 
-**测试case**
+**基本使用演示**
 
 ```java
-@Test
 public void testTrans() {
     String text = "这斜月三星洞…… 长寿面，孙悟空，猪八戒，唐僧，沙和尚，白龙马，李靖，托塔天王, 戏说西游，许多人都这样说，收拾一下，拾金不昧；纔=才";
     String out = ChineseUtils.s2t(text);
@@ -101,6 +105,47 @@ hk2s -->这斜月三星洞…… 长寿面，孙悟空，猪八戒，唐僧，�
 tw2s -->这斜月三星洞…… 长寿面，孙悟空，猪八戒，唐僧，沙和尚，白龙马，李靖，托塔天王, 戏说西游，许多人都这样说，收拾一下，拾金不昧；才=才
 ```
 
+
+高性能接入
+---
+
+**词典预加载**
+
+> 当系统对性能要求较高时，可以考虑提前异步加载词典、避免首次使用加载词典导致开销高
+
+
+```java
+// 预热加载所有的词典
+ChineseUtils.preLoad(true, TransType.values());
+
+// 预加载简体转繁体词典
+ChineseUtils.preLoad(true, TransType.SIMPLE_TO_TRADITIONAL);
+
+// 预加载简繁互转词典
+ChineseUtils.preLoad(true, TransType.SIMPLE_TO_TRADITIONAL, TransType.TRADITIONAL_TO_SIMPLE);
+```
+
+**卸载**
+
+> 当内存敏感时，提前卸载无用词典减少内存占用
+
+```java
+// 卸载所有词典
+ChineseUtils.unLoad(TransType.values());
+
+// 卸载简繁互转词典
+ChineseUtils.unLoad(TransType.SIMPLE_TO_TRADITIONAL, TransType.TRADITIONAL_TO_SIMPLE);
+```
+
+**转换**
+
+ChineseUtils封装了通用的字体转换接口，可以直接通过下面的方式实现转换
+
+```java
+ChineseUtils.transfer("一灰灰blog", TransType.SIMPLE_TO_TRADITIONAL);
+```
+
+
 版本说明
 ---
 
@@ -112,10 +157,15 @@ tw2s -->这斜月三星洞…… 长寿面，孙悟空，猪八戒，唐僧，�
     - 繁转简： fix 奔驰，奶油，黄油转换异常 
 - 0.2.2
     - 繁转简
-       - [#3 克拉转成克拉布](https://github.com/liuyueyi/quick-chinese-transfer/issues/3)     
+      - [#3 克拉转成克拉布](https://github.com/liuyueyi/quick-chinese-transfer/issues/3)     
 - 0.2.3
     - 繁体转简体
-       - [#4 乾 繁转简错误](https://github.com/liuyueyi/quick-chinese-transfer/issues/4)]
+      - [#4 乾 繁转简错误](https://github.com/liuyueyi/quick-chinese-transfer/issues/4)]
 - 0.2.4
     - 繁体转简体
-        - [#5 骼 繁转简错误](https://github.com/liuyueyi/quick-chinese-transfer/issues/5)]
+      - [#5 骼 繁转简错误](https://github.com/liuyueyi/quick-chinese-transfer/issues/5)]
+- 0.2.5
+    - 删除 `唇<=>脣` 简繁转换
+      - [#6 修正簡繁轉換：唇<=>脣](https://github.com/liuyueyi/quick-chinese-transfer/issues/6)]
+    - 支持同步/异步预加载词典、卸载词典
+      - [#7 支持词典异步预加载、卸载](https://github.com/liuyueyi/quick-chinese-transfer/issues/7) 
