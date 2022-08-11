@@ -48,7 +48,7 @@ public class ChineseUtils {
     }
 
     /**
-     * 下载不用的词典
+     * 卸载不用的词典
      *
      * @param transTypes
      */

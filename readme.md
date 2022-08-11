@@ -31,7 +31,7 @@ quick-chinese-transfer
 <dependency>
     <groupId>com.github.liuyueyi</groupId>
     <artifactId>quick-transfer-core</artifactId>
-    <version>0.2.5</version>
+    <version>0.2.6</version>
 </dependency>
 ```
 
@@ -39,7 +39,7 @@ quick-chinese-transfer
 
 ```gradle
 // https://mvnrepository.com/artifact/com.github.liuyueyi/quick-transfer-core
-implementation 'com.github.liuyueyi:quick-transfer-core:0.2.5'
+implementation 'com.github.liuyueyi:quick-transfer-core:0.2.6'
 ```
 
 **使用jitpack导入依赖**
@@ -55,7 +55,7 @@ implementation 'com.github.liuyueyi:quick-transfer-core:0.2.5'
 <dependency>
     <groupId>com.github.liuyueyi.quick-chinese-transfer</groupId>
     <artifactId>quick-transfer-core</artifactId>
-    <version>0.2.5</version>
+    <version>0.2.6</version>
 </dependency>
 ```
 
@@ -70,7 +70,7 @@ allprojects {
 }
 
 dependencies {
-    implementation 'com.github.liuyueyi.quick-chinese-transfer:quick-transfer-core:0.2.5'
+    implementation 'com.github.liuyueyi.quick-chinese-transfer:quick-transfer-core:0.2.6'
 }
 ```
 
@@ -149,23 +149,25 @@ ChineseUtils.transfer("一灰灰blog", TransType.SIMPLE_TO_TRADITIONAL);
 版本说明
 ---
 
-- 0.1.0
-    - 简繁转换
-- 0.2.0
-    - 修复链式转换
-- 0.2.1
-    - 繁转简： fix 奔驰，奶油，黄油转换异常 
-- 0.2.2
-    - 繁转简
-      - [#3 克拉转成克拉布](https://github.com/liuyueyi/quick-chinese-transfer/issues/3)     
-- 0.2.3
-    - 繁体转简体
-      - [#4 乾 繁转简错误](https://github.com/liuyueyi/quick-chinese-transfer/issues/4)]
-- 0.2.4
-    - 繁体转简体
-      - [#5 骼 繁转简错误](https://github.com/liuyueyi/quick-chinese-transfer/issues/5)]
+- 0.2.6
+  - 繁体转简体
 - 0.2.5
     - 删除 `唇<=>脣` 简繁转换
-      - [#6 修正簡繁轉換：唇<=>脣](https://github.com/liuyueyi/quick-chinese-transfer/issues/6)]
+        - [#6 修正簡繁轉換：唇<=>脣](https://github.com/liuyueyi/quick-chinese-transfer/issues/6)]
     - 支持同步/异步预加载词典、卸载词典
-      - [#7 支持词典异步预加载、卸载](https://github.com/liuyueyi/quick-chinese-transfer/issues/7) 
+        - [#7 支持词典异步预加载、卸载](https://github.com/liuyueyi/quick-chinese-transfer/issues/7)
+- 0.2.4
+    - 繁体转简体
+        - [#5 骼 繁转简错误](https://github.com/liuyueyi/quick-chinese-transfer/issues/5)]
+- 0.2.3
+    - 繁体转简体
+        - [#4 乾 繁转简错误](https://github.com/liuyueyi/quick-chinese-transfer/issues/4)]
+- 0.2.2
+    - 繁转简
+        - [#3 克拉转成克拉布](https://github.com/liuyueyi/quick-chinese-transfer/issues/3)
+- 0.2.1
+    - 繁转简： fix 奔驰，奶油，黄油转换异常
+- 0.2.0
+    - 修复链式转换
+- 0.1.0
+    - 简繁转换
