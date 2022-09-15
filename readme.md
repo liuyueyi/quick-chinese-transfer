@@ -31,7 +31,7 @@ quick-chinese-transfer
 <dependency>
     <groupId>com.github.liuyueyi</groupId>
     <artifactId>quick-transfer-core</artifactId>
-    <version>0.2.6</version>
+    <version>0.2.7</version>
 </dependency>
 ```
 
@@ -55,7 +55,7 @@ implementation 'com.github.liuyueyi:quick-transfer-core:0.2.6'
 <dependency>
     <groupId>com.github.liuyueyi.quick-chinese-transfer</groupId>
     <artifactId>quick-transfer-core</artifactId>
-    <version>0.2.6</version>
+    <version>0.2.7</version>
 </dependency>
 ```
 
@@ -70,7 +70,7 @@ allprojects {
 }
 
 dependencies {
-    implementation 'com.github.liuyueyi.quick-chinese-transfer:quick-transfer-core:0.2.6'
+    implementation 'com.github.liuyueyi.quick-chinese-transfer:quick-transfer-core:0.2.7'
 }
 ```
 
@@ -149,19 +149,21 @@ ChineseUtils.transfer("一灰灰blog", TransType.SIMPLE_TO_TRADITIONAL);
 版本说明
 ---
 
+- 0.2.7
+  - [#9 繁转简 通道会变信道](https://github.com/liuyueyi/quick-chinese-transfer/issues/9)
 - 0.2.6
-  - 繁体转简体
+  - [#8 繁转简： 那個人=>神秘人](https://github.com/liuyueyi/quick-chinese-transfer/issues/8)
 - 0.2.5
     - 删除 `唇<=>脣` 简繁转换
-        - [#6 修正簡繁轉換：唇<=>脣](https://github.com/liuyueyi/quick-chinese-transfer/issues/6)]
+        - [#6 修正簡繁轉換：唇<=>脣](https://github.com/liuyueyi/quick-chinese-transfer/issues/6)
     - 支持同步/异步预加载词典、卸载词典
         - [#7 支持词典异步预加载、卸载](https://github.com/liuyueyi/quick-chinese-transfer/issues/7)
 - 0.2.4
     - 繁体转简体
-        - [#5 骼 繁转简错误](https://github.com/liuyueyi/quick-chinese-transfer/issues/5)]
+        - [#5 骼 繁转简错误](https://github.com/liuyueyi/quick-chinese-transfer/issues/5)
 - 0.2.3
     - 繁体转简体
-        - [#4 乾 繁转简错误](https://github.com/liuyueyi/quick-chinese-transfer/issues/4)]
+        - [#4 乾 繁转简错误](https://github.com/liuyueyi/quick-chinese-transfer/issues/4)
 - 0.2.2
     - 繁转简
         - [#3 克拉转成克拉布](https://github.com/liuyueyi/quick-chinese-transfer/issues/3)

@@ -11,7 +11,8 @@ import com.github.liuyueyi.quick.transfer.dictionary.DictionaryContainer;
 /**
  * 中文相关工具类。
  *
- * @author luhuiguo
+ * @author YiHui
+ * @site  https://github.com/liuyueyi/quick-chinese-transfer
  */
 public class ChineseUtils {
 
