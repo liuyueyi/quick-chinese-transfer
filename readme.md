@@ -149,6 +149,8 @@ ChineseUtils.transfer("一灰灰blog", TransType.SIMPLE_TO_TRADITIONAL);
 版本说明
 ---
 
+- 0.2.8
+  - [#10 翻转简 洛哈=>洛哈特](https://github.com/liuyueyi/quick-chinese-transfer/issues/10)
 - 0.2.7
   - [#9 繁转简 通道会变信道](https://github.com/liuyueyi/quick-chinese-transfer/issues/9)
 - 0.2.6
