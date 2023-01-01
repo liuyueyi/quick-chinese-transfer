@@ -9,9 +9,8 @@ import com.github.liuyueyi.quick.transfer.ChineseUtils;
 public class Issue10Fix {
 
     public static void fix9() {
-        String text = "洛哈特=>洛哈特";
-        String ans = ChineseUtils.t2s(text);
-        System.out.println(ans);
+        String text = "洛哈特=>洛哈特, 人鬼情未了=>第六感生死戀";
+        System.out.println("origin:" + text);
         System.out.println("tw2s:" + ChineseUtils.tw2s(text));
         System.out.println("hk2s:" + ChineseUtils.hk2s(text));
         System.out.println("t2s:" + ChineseUtils.t2s(text));

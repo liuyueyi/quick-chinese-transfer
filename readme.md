@@ -31,7 +31,7 @@ quick-chinese-transfer
 <dependency>
     <groupId>com.github.liuyueyi</groupId>
     <artifactId>quick-transfer-core</artifactId>
-    <version>0.2.7</version>
+    <version>0.2.9</version>
 </dependency>
 ```
 
@@ -55,7 +55,7 @@ implementation 'com.github.liuyueyi:quick-transfer-core:0.2.6'
 <dependency>
     <groupId>com.github.liuyueyi.quick-chinese-transfer</groupId>
     <artifactId>quick-transfer-core</artifactId>
-    <version>0.2.7</version>
+    <version>0.2.9</version>
 </dependency>
 ```
 
@@ -149,6 +149,8 @@ ChineseUtils.transfer("一灰灰blog", TransType.SIMPLE_TO_TRADITIONAL);
 版本说明
 ---
 
+- 0.2.9
+  - [#11 娘 对象 签简体转繁体](https://github.com/liuyueyi/quick-chinese-transfer/issues/11)
 - 0.2.8
   - [#10 翻转简 洛哈=>洛哈特](https://github.com/liuyueyi/quick-chinese-transfer/issues/10)
 - 0.2.7
