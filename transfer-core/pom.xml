@@ -8,7 +8,7 @@
         <version>0.1</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
-    <version>0.2.9</version>
+    <version>0.2.10</version>
 
     <artifactId>quick-transfer-core</artifactId>
 
@@ -22,7 +22,7 @@
         <developer>
             <name>YiHui</name>
             <email>bangzewu@126.com</email>
-            <url>http://blog.hhui.top</url>
+            <url>https://hhui.top/quick/quick-chinese-transfer/</url>
         </developer>
     </developers>
 </project>
