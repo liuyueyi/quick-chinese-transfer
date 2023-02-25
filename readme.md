@@ -31,7 +31,7 @@ quick-chinese-transfer
 <dependency>
     <groupId>com.github.liuyueyi</groupId>
     <artifactId>quick-transfer-core</artifactId>
-    <version>0.2.10</version>
+    <version>0.2.11</version>
 </dependency>
 ```
 
@@ -39,7 +39,7 @@ quick-chinese-transfer
 
 ```gradle
 // https://mvnrepository.com/artifact/com.github.liuyueyi/quick-transfer-core
-implementation 'com.github.liuyueyi:quick-transfer-core:0.2.10'
+implementation 'com.github.liuyueyi:quick-transfer-core:0.2.11'
 ```
 
 **使用jitpack导入依赖**
@@ -55,7 +55,7 @@ implementation 'com.github.liuyueyi:quick-transfer-core:0.2.10'
 <dependency>
     <groupId>com.github.liuyueyi.quick-chinese-transfer</groupId>
     <artifactId>quick-transfer-core</artifactId>
-    <version>0.2.10</version>
+    <version>0.2.11</version>
 </dependency>
 ```
 
@@ -70,7 +70,7 @@ allprojects {
 }
 
 dependencies {
-    implementation 'com.github.liuyueyi.quick-chinese-transfer:quick-transfer-core:0.2.10'
+    implementation 'com.github.liuyueyi.quick-chinese-transfer:quick-transfer-core:0.2.11'
 }
 ```
 
@@ -148,6 +148,8 @@ ChineseUtils.transfer("一灰灰blog", TransType.SIMPLE_TO_TRADITIONAL);
 
 版本说明
 ---
+- 0.2.11
+  - [#13 “福斯”繁简转换问题](https://github.com/liuyueyi/quick-chinese-transfer/issues/13)
 - 0.2.10
   - [#12 快取 高速缓存](https://github.com/liuyueyi/quick-chinese-transfer/issues/12) 
 - 0.2.9
