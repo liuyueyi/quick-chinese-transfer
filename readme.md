@@ -148,8 +148,10 @@ ChineseUtils.transfer("一灰灰blog", TransType.SIMPLE_TO_TRADITIONAL);
 
 版本说明
 ---
+- 0.2.13
+    - [#15 那么"标致"和"溜"繁简转换问题](https://github.com/liuyueyi/quick-chinese-transfer/issues/15)
 - 0.2.12
-    - [#14 那么”繁简转换问题 ](https://github.com/liuyueyi/quick-chinese-transfer/issues/14)
+    - [#14 那么”繁简转换问题](https://github.com/liuyueyi/quick-chinese-transfer/issues/14)
 - 0.2.11
   - [#13 “福斯”繁简转换问题](https://github.com/liuyueyi/quick-chinese-transfer/issues/13)
 - 0.2.10
