@@ -31,7 +31,7 @@ quick-chinese-transfer
 <dependency>
     <groupId>com.github.liuyueyi</groupId>
     <artifactId>quick-transfer-core</artifactId>
-    <version>0.2.12</version>
+    <version>0.2.13</version>
 </dependency>
 ```
 
@@ -39,7 +39,7 @@ quick-chinese-transfer
 
 ```gradle
 // https://mvnrepository.com/artifact/com.github.liuyueyi/quick-transfer-core
-implementation 'com.github.liuyueyi:quick-transfer-core:0.2.12'
+implementation 'com.github.liuyueyi:quick-transfer-core:0.2.13'
 ```
 
 **使用jitpack导入依赖**
@@ -55,7 +55,7 @@ implementation 'com.github.liuyueyi:quick-transfer-core:0.2.12'
 <dependency>
     <groupId>com.github.liuyueyi.quick-chinese-transfer</groupId>
     <artifactId>quick-transfer-core</artifactId>
-    <version>0.2.12</version>
+    <version>0.2.13</version>
 </dependency>
 ```
 
