@@ -7,9 +7,10 @@
     <groupId>com.github.liuyueyi</groupId>
     <artifactId>quick-chinese-transfer</artifactId>
     <packaging>pom</packaging>
-    <version>0.1</version>
+    <version>0.2</version>
     <modules>
         <module>transfer-core</module>
+        <module>hanzi-writer</module>
     </modules>
 
     <name>quick-chinese-transfer</name>

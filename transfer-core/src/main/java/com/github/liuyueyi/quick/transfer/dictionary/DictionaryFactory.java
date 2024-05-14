@@ -47,7 +47,7 @@ public class DictionaryFactory {
             String line = null;
             String[] pair;
             while (null != (line = in.readLine())) {
-                if (line.length() == 0 || line.startsWith(SHARP)) {
+                if (line.isEmpty() || line.startsWith(SHARP)) {
                     // 空行和注释直接扔掉
                     continue;
                 }
