@@ -11,7 +11,7 @@
 
     <artifactId>hanzi-writer</artifactId>
     <description>汉字笔画书写</description>
-    <version>0.1</version>
+    <version>0.1.0</version>
 
     <properties>
         <maven.compiler.source>8</maven.compiler.source>
