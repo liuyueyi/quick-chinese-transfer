@@ -23,14 +23,14 @@ public class HanZiGenOptions {
     /**
      * 默认是田字格背景
      */
-    private String bgStr = "  <g stroke=\"lightgray\" stroke-dasharray=\"1,1\" stroke-width=\"1\" transform=\"scale(4, 4)\">\n" +
+    private String bg = "  <g stroke=\"lightgray\" stroke-dasharray=\"1,1\" stroke-width=\"1\" transform=\"scale(4, 4)\">\n" +
             "    <line x1=\"0\" y1=\"0\" x2=\"256\" y2=\"256\"></line>\n" +
             "    <line x1=\"256\" y1=\"0\" x2=\"0\" y2=\"256\"></line>\n" +
             "    <line x1=\"128\" y1=\"0\" x2=\"128\" y2=\"256\"></line>\n" +
             "    <line x1=\"0\" y1=\"128\" x2=\"256\" y2=\"128\"></line>\n" +
             "  </g>\n";
 
-    private String bgStyle = "border: 1px solid rgb(204, 204, 204); background-color: rgb(238, 238, 238);";
+    private String svgStyle = "border: 1px solid rgb(204, 204, 204); background-color: rgb(238, 238, 238);";
 
     /**
      * 文字的灰色背景提示
@@ -43,7 +43,7 @@ public class HanZiGenOptions {
     /**
      * 描绘动画
      */
-    private Boolean animalShow = true;
+    private Boolean animateShow = true;
 
     /**
      * 绘制后的颜色
@@ -58,18 +58,18 @@ public class HanZiGenOptions {
     /**
      * 绘制的高亮色
      */
-    private String animalColor = "rgb(187, 68, 68)";
+    private String animateColor = "rgb(187, 68, 68)";
 
 
     /**
      * 是否显示绘制轮廓
      */
-    private Boolean tipShow = true;
+    private Boolean writeTipShow = true;
 
     /**
      * 绘制轮廓的颜色
      */
-    private String tipStyle = "      .median-stroke {\n" +
+    private String writeTipStyle = "\n      .median-stroke {\n" +
             "          fill: none;\n" +
             "          stroke: rgb(15,15,15, 0.5);\n" +
             "          stroke-width: 2px;\n" +
@@ -80,12 +80,12 @@ public class HanZiGenOptions {
     /**
      * 是否显示笔画顺序的文字
      */
-    private Boolean biHuaShow = true;
+    private Boolean strokeNumShow = true;
 
     /**
      * 笔画提示的格式
      */
-    private String biHuaStyle = "        text {\n" +
+    private String strokeNumStyle = "\n        text {\n" +
             "            font-family: Helvetica;\n" +
             "            font-size: 50px;\n" +
             "            fill: #ffffff;\n" +
@@ -100,7 +100,7 @@ public class HanZiGenOptions {
     /**
      * 绘制动画的时间
      */
-    private Float animalSeconds = 0.9f;
+    private Float animateSeconds = 0.9f;
 
     /**
      * 绘制结果
@@ -125,21 +125,21 @@ public class HanZiGenOptions {
         return this;
     }
 
-    public String getBgStr() {
-        return bgStr;
+    public String getBg() {
+        return bg;
     }
 
-    public HanZiGenOptions setBgStr(String bgStr) {
-        this.bgStr = bgStr;
+    public HanZiGenOptions setBg(String bg) {
+        this.bg = bg;
         return this;
     }
 
-    public String getBgStyle() {
-        return bgStyle;
+    public String getSvgStyle() {
+        return svgStyle;
     }
 
-    public HanZiGenOptions setBgStyle(String bgStyle) {
-        this.bgStyle = bgStyle;
+    public HanZiGenOptions setSvgStyle(String svgStyle) {
+        this.svgStyle = svgStyle;
         return this;
     }
 
@@ -161,12 +161,12 @@ public class HanZiGenOptions {
         return this;
     }
 
-    public Boolean getAnimalShow() {
-        return animalShow;
+    public Boolean getAnimateShow() {
+        return animateShow;
     }
 
-    public HanZiGenOptions setAnimalShow(Boolean animalShow) {
-        this.animalShow = animalShow;
+    public HanZiGenOptions setAnimateShow(Boolean animateShow) {
+        this.animateShow = animateShow;
         return this;
     }
 
@@ -188,57 +188,57 @@ public class HanZiGenOptions {
         return this;
     }
 
-    public String getAnimalColor() {
-        return animalColor;
+    public String getAnimateColor() {
+        return animateColor;
     }
 
-    public HanZiGenOptions setAnimalColor(String animalColor) {
-        this.animalColor = animalColor;
+    public HanZiGenOptions setAnimateColor(String animateColor) {
+        this.animateColor = animateColor;
         return this;
     }
 
-    public Boolean getTipShow() {
-        return tipShow;
+    public Boolean getWriteTipShow() {
+        return writeTipShow;
     }
 
-    public HanZiGenOptions setTipShow(Boolean tipShow) {
-        this.tipShow = tipShow;
+    public HanZiGenOptions setWriteTipShow(Boolean writeTipShow) {
+        this.writeTipShow = writeTipShow;
         return this;
     }
 
-    public String getTipStyle() {
-        return tipStyle;
+    public String getWriteTipStyle() {
+        return writeTipStyle;
     }
 
-    public HanZiGenOptions setTipStyle(String tipStyle) {
-        this.tipStyle = tipStyle;
+    public HanZiGenOptions setWriteTipStyle(String writeTipStyle) {
+        this.writeTipStyle = writeTipStyle;
         return this;
     }
 
-    public Boolean getBiHuaShow() {
-        return biHuaShow;
+    public Boolean getStrokeNumShow() {
+        return strokeNumShow;
     }
 
-    public HanZiGenOptions setBiHuaShow(Boolean biHuaShow) {
-        this.biHuaShow = biHuaShow;
+    public HanZiGenOptions setStrokeNumShow(Boolean strokeNumShow) {
+        this.strokeNumShow = strokeNumShow;
         return this;
     }
 
-    public String getBiHuaStyle() {
-        return biHuaStyle;
+    public String getStrokeNumStyle() {
+        return strokeNumStyle;
     }
 
-    public HanZiGenOptions setBiHuaStyle(String biHuaStyle) {
-        this.biHuaStyle = biHuaStyle;
+    public HanZiGenOptions setStrokeNumStyle(String strokeNumStyle) {
+        this.strokeNumStyle = strokeNumStyle;
         return this;
     }
 
-    public Float getAnimalSeconds() {
-        return animalSeconds;
+    public Float getAnimateSeconds() {
+        return animateSeconds;
     }
 
-    public HanZiGenOptions setAnimalSeconds(Float animalSeconds) {
-        this.animalSeconds = animalSeconds;
+    public HanZiGenOptions setAnimateSeconds(Float animateSeconds) {
+        this.animateSeconds = animateSeconds;
         return this;
     }
 
@@ -256,12 +256,12 @@ public class HanZiGenOptions {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         HanZiGenOptions options = (HanZiGenOptions) o;
-        return Objects.equals(size, options.size) && Objects.equals(bgShow, options.bgShow) && Objects.equals(bgStr, options.bgStr) && Objects.equals(outlineShow, options.outlineShow) && Objects.equals(outlineColor, options.outlineColor) && Objects.equals(animalShow, options.animalShow) && Objects.equals(drawColor, options.drawColor) && Objects.equals(midColor, options.midColor) && Objects.equals(animalColor, options.animalColor) && Objects.equals(tipShow, options.tipShow) && Objects.equals(tipStyle, options.tipStyle) && Objects.equals(biHuaShow, options.biHuaShow) && Objects.equals(biHuaStyle, options.biHuaStyle) && Objects.equals(animalSeconds, options.animalSeconds) && renderStyle == options.renderStyle;
+        return Objects.equals(size, options.size) && Objects.equals(bgShow, options.bgShow) && Objects.equals(bg, options.bg) && Objects.equals(outlineShow, options.outlineShow) && Objects.equals(outlineColor, options.outlineColor) && Objects.equals(animateShow, options.animateShow) && Objects.equals(drawColor, options.drawColor) && Objects.equals(midColor, options.midColor) && Objects.equals(animateColor, options.animateColor) && Objects.equals(writeTipShow, options.writeTipShow) && Objects.equals(writeTipStyle, options.writeTipStyle) && Objects.equals(strokeNumShow, options.strokeNumShow) && Objects.equals(strokeNumStyle, options.strokeNumStyle) && Objects.equals(animateSeconds, options.animateSeconds) && renderStyle == options.renderStyle;
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(size, bgShow, bgStr, outlineShow, outlineColor, animalShow, drawColor, midColor, animalColor, tipShow, tipStyle, biHuaShow, biHuaStyle, animalSeconds, renderStyle);
+        return Objects.hash(size, bgShow, bg, outlineShow, outlineColor, animateShow, drawColor, midColor, animateColor, writeTipShow, writeTipStyle, strokeNumShow, strokeNumStyle, animateSeconds, renderStyle);
     }
 
     @Override
@@ -269,18 +269,18 @@ public class HanZiGenOptions {
         return "HanZiGenOptions{" +
                 "size=" + size +
                 ", bgShow=" + bgShow +
-                ", bgStr='" + bgStr + '\'' +
+                ", bgStr='" + bg + '\'' +
                 ", outlineShow=" + outlineShow +
                 ", outlineColor='" + outlineColor + '\'' +
-                ", animalShow=" + animalShow +
+                ", animalShow=" + animateShow +
                 ", drawColor='" + drawColor + '\'' +
                 ", midColor='" + midColor + '\'' +
-                ", animalColor='" + animalColor + '\'' +
-                ", tipShow=" + tipShow +
-                ", tipStyle='" + tipStyle + '\'' +
-                ", biHuaShow=" + biHuaShow +
-                ", biHuaStyle='" + biHuaStyle + '\'' +
-                ", animalSeconds=" + animalSeconds +
+                ", animalColor='" + animateColor + '\'' +
+                ", tipShow=" + writeTipShow +
+                ", tipStyle='" + writeTipStyle + '\'' +
+                ", biHuaShow=" + strokeNumShow +
+                ", biHuaStyle='" + strokeNumStyle + '\'' +
+                ", animalSeconds=" + animateSeconds +
                 ", render=" + renderStyle +
                 '}';
     }

@@ -203,7 +203,6 @@ ChineseUtils.transfer("一灰灰blog",TransType.SIMPLE_TO_TRADITIONAL);
 
 - [https://github.com/chanind/hanzi-writer](https://github.com/chanind/hanzi-writer)
 
-
 ### 使用姿势
 
 **maven依赖**
@@ -238,9 +237,9 @@ implementation 'com.github.liuyueyi:hanzi-writer:0.1.0'
 </repositories>
 
 <dependency>
-    <groupId>com.github.liuyueyi.quick-chinese-transfer</groupId>
-    <artifactId>hanzi-writer</artifactId>
-    <version>0.2.14</version>
+<groupId>com.github.liuyueyi.quick-chinese-transfer</groupId>
+<artifactId>hanzi-writer</artifactId>
+<version>0.2.14</version>
 </dependency>
 ```
 
@@ -265,10 +264,10 @@ dependencies {
 HanZiRenderResultVo vo = HanZiSvgGenerator
         .newGenerator("帅")
         .setRenderStyle(RenderStyleEnum.TOTAL)
-        .setBiHuaShow(true)
-        .setAnimalShow(true)
+        .setStrokeNumShow(true)
+        .setAnimateShow(true)
         .setOutlineShow(true)
-        .setTipShow(true)
+        .setWriteTipShow(true)
         .toSvgs();
 
 // svg 表示带动画 + 笔画 的svg格式
@@ -276,6 +275,28 @@ String svg = vo.getSvg();
 // 逐笔绘制的效果
 List<String> strokeSvgList = vo.getStrokes();
 ```
+
+几个关键的参数配置
+
+![](hanzi-writer/src/test/resources/struct.jpg)
+
+| 参数               | 类型        | 说明                            | 默认值                                                                                                                                                                                                                                                                   
+|------------------|-----------|-------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `size`           | `int`     | 输出svg大小                       | `300`                                                                                                                                                                                                                                                                 |
+| `bgShow`         | `boolean` | 是否显示背景的田字格                    | `true`                                                                                                                                                                                                                                                                |
+| `bg`             | `string`  | 背景信息，田字格                      | `<g stroke="lightgray"stroke-dasharray="1,1"stroke-width="1"transform="scale(4, 4)"><line x1="0"y1="0"x2="256"y2="256"></line><line x1="256"y1="0"x2="0"y2="256"></line><line x1="128"y1="0"x2="128"y2="256"></line><line x1="0"y1="128"x2="256"y2="128"></line></g>` |
+| `outlineShow`    | `boolean` | 是否显示背景描边                      | `true`                                                                                                                                                                                                                                                                | 
+| `outlineColor`   | `string`  | 背景描边色                         | `rgba(221,221,221,1)`                                                                                                                                                                                                                                                 |
+| `animateShow`    | `boolean` | 是否支持按笔画顺序进行动画展示               | `true`                                                                                                                                                                                                                                                                | 
+| `drawColor`      | `string`  | 动画执行完之后的颜色                    | `rgb(85, 85, 85)`                                                                                                                                                                                                                                                     |
+| `midColor`       | `string`  | 动画执行过程中的颜色                    | `rgb(68, 68, 255)`                                                                                                                                                                                                                                                    |
+| `animateColor`   | `string`  | 动画开始执行的颜色                     | `rgb(187, 68, 68)`                                                                                                                                                                                                                                                    |
+| `animateSeconds` | `float`   | 动画时长(秒)                       | `0.9`                                                                                                                                                                                                                                                                 |
+| `writeTipShow`   | `boolean` | 是否显示绘制轮廓的提示                   | `true`                                                                                                                                                                                                                                                                |
+| `writeTipStyle`  | `string`  | 轮廓的提示样式                       | `.median-stroke{fill:none;stroke:rgb(15,15,15,0.5);stroke-width:2px;opacity:1}`                                                                                                                                                                                       |
+| `strokeNumShow`  | `boolean` | 是否显示笔画顺序的文字                   | `true`                                                                                                                                                                                                                                                                |
+| `strokeNumStyle` | `string`  | 笔画提示数字的格式                     | `text{font-family:Helvetica;font-size:50px;fill:#ffffff;paint-order:stroke;stroke:#000000;stroke-width:4px;stroke-linecap:butt;stroke-linejoin:miter;font-weight:800}`                                                                                                |
+| `renderStyle`    | `enum`    | `NORMAL,STROKE_ANIMATE,TOTAL` | normal 表示只返回最终的svg, stroke_animate表示只返回笔画拆分结果,total前面两个都返回                                                                                                                                                                                                            |
 
 对应的svg显示样式如下
 
@@ -285,8 +306,7 @@ List<String> strokeSvgList = vo.getStrokes();
 |--------------------------------------------------|--------------------------------------------------|--------------------------------------------------|--------------------------------------------------|--------------------------------------------------|
 | ![帅](hanzi-writer/src/test/resources/shuai1.svg) | ![帅](hanzi-writer/src/test/resources/shuai2.svg) | ![帅](hanzi-writer/src/test/resources/shuai3.svg) | ![帅](hanzi-writer/src/test/resources/shuai4.svg) | ![帅](hanzi-writer/src/test/resources/shuai5.svg) |
 
-
 ### 版本说明
 
 - 0.1.0
-  - 完成初始版本
+    - 完成初始版本
