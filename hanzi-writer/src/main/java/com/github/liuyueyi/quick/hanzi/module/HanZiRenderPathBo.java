@@ -6,7 +6,7 @@ import java.util.List;
  * @author YiHui
  * @date 2024/5/14
  */
-public class HanZiRenderVo {
+public class HanZiRenderPathBo {
 
     private List<String> animalStyles;
 
@@ -22,7 +22,7 @@ public class HanZiRenderVo {
         return animalStyles;
     }
 
-    public HanZiRenderVo setAnimalStyles(List<String> animalStyles) {
+    public HanZiRenderPathBo setAnimalStyles(List<String> animalStyles) {
         this.animalStyles = animalStyles;
         return this;
     }
@@ -31,7 +31,7 @@ public class HanZiRenderVo {
         return outlinePaths;
     }
 
-    public HanZiRenderVo setOutlinePaths(List<String> outlinePaths) {
+    public HanZiRenderPathBo setOutlinePaths(List<String> outlinePaths) {
         this.outlinePaths = outlinePaths;
         return this;
     }
@@ -40,7 +40,7 @@ public class HanZiRenderVo {
         return animalPaths;
     }
 
-    public HanZiRenderVo setAnimalPaths(List<String> animalPaths) {
+    public HanZiRenderPathBo setAnimalPaths(List<String> animalPaths) {
         this.animalPaths = animalPaths;
         return this;
     }
@@ -49,7 +49,7 @@ public class HanZiRenderVo {
         return tipPaths;
     }
 
-    public HanZiRenderVo setTipPaths(List<String> tipPaths) {
+    public HanZiRenderPathBo setTipPaths(List<String> tipPaths) {
         this.tipPaths = tipPaths;
         return this;
     }
@@ -58,7 +58,7 @@ public class HanZiRenderVo {
         return biHuaPaths;
     }
 
-    public HanZiRenderVo setBiHuaPaths(List<String> biHuaPaths) {
+    public HanZiRenderPathBo setBiHuaPaths(List<String> biHuaPaths) {
         this.biHuaPaths = biHuaPaths;
         return this;
     }

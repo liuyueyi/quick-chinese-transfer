@@ -30,6 +30,7 @@ public class HanZiGenOptions {
             "    <line x1=\"0\" y1=\"128\" x2=\"256\" y2=\"128\"></line>\n" +
             "  </g>\n";
 
+    private String bgStyle = "border: 1px solid rgb(204, 204, 204); background-color: rgb(238, 238, 238);";
 
     /**
      * 文字的灰色背景提示
@@ -101,6 +102,11 @@ public class HanZiGenOptions {
      */
     private Float animalSeconds = 0.9f;
 
+    /**
+     * 绘制结果
+     */
+    private RenderStyleEnum renderStyle = RenderStyleEnum.NORMAL;
+
     public Integer getSize() {
         return size;
     }
@@ -125,6 +131,15 @@ public class HanZiGenOptions {
 
     public HanZiGenOptions setBgStr(String bgStr) {
         this.bgStr = bgStr;
+        return this;
+    }
+
+    public String getBgStyle() {
+        return bgStyle;
+    }
+
+    public HanZiGenOptions setBgStyle(String bgStyle) {
+        this.bgStyle = bgStyle;
         return this;
     }
 
@@ -227,17 +242,26 @@ public class HanZiGenOptions {
         return this;
     }
 
+    public RenderStyleEnum getRenderStyle() {
+        return renderStyle;
+    }
+
+    public HanZiGenOptions setRenderStyle(RenderStyleEnum renderStyle) {
+        this.renderStyle = renderStyle;
+        return this;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        HanZiGenOptions that = (HanZiGenOptions) o;
-        return Objects.equals(size, that.size) && Objects.equals(bgShow, that.bgShow) && Objects.equals(bgStr, that.bgStr) && Objects.equals(outlineShow, that.outlineShow) && Objects.equals(outlineColor, that.outlineColor) && Objects.equals(animalShow, that.animalShow) && Objects.equals(drawColor, that.drawColor) && Objects.equals(midColor, that.midColor) && Objects.equals(animalColor, that.animalColor) && Objects.equals(tipShow, that.tipShow) && Objects.equals(tipStyle, that.tipStyle) && Objects.equals(biHuaShow, that.biHuaShow) && Objects.equals(biHuaStyle, that.biHuaStyle) && Objects.equals(animalSeconds, that.animalSeconds);
+        HanZiGenOptions options = (HanZiGenOptions) o;
+        return Objects.equals(size, options.size) && Objects.equals(bgShow, options.bgShow) && Objects.equals(bgStr, options.bgStr) && Objects.equals(outlineShow, options.outlineShow) && Objects.equals(outlineColor, options.outlineColor) && Objects.equals(animalShow, options.animalShow) && Objects.equals(drawColor, options.drawColor) && Objects.equals(midColor, options.midColor) && Objects.equals(animalColor, options.animalColor) && Objects.equals(tipShow, options.tipShow) && Objects.equals(tipStyle, options.tipStyle) && Objects.equals(biHuaShow, options.biHuaShow) && Objects.equals(biHuaStyle, options.biHuaStyle) && Objects.equals(animalSeconds, options.animalSeconds) && renderStyle == options.renderStyle;
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(size, bgShow, bgStr, outlineShow, outlineColor, animalShow, drawColor, midColor, animalColor, tipShow, tipStyle, biHuaShow, biHuaStyle, animalSeconds);
+        return Objects.hash(size, bgShow, bgStr, outlineShow, outlineColor, animalShow, drawColor, midColor, animalColor, tipShow, tipStyle, biHuaShow, biHuaStyle, animalSeconds, renderStyle);
     }
 
     @Override
@@ -257,6 +281,7 @@ public class HanZiGenOptions {
                 ", biHuaShow=" + biHuaShow +
                 ", biHuaStyle='" + biHuaStyle + '\'' +
                 ", animalSeconds=" + animalSeconds +
+                ", render=" + renderStyle +
                 '}';
     }
 }

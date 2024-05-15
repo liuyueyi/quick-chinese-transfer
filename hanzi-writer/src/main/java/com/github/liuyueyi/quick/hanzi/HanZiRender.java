@@ -1,7 +1,7 @@
 package com.github.liuyueyi.quick.hanzi;
 
 import com.github.liuyueyi.quick.hanzi.module.HanZiGenOptions;
-import com.github.liuyueyi.quick.hanzi.module.HanZiRenderVo;
+import com.github.liuyueyi.quick.hanzi.module.HanZiRenderPathBo;
 import com.github.liuyueyi.quick.hanzi.util.StrUtil;
 
 import java.util.ArrayList;
@@ -23,11 +23,11 @@ public class HanZiRender {
      * @param index
      * @return
      */
-    private static String toStroke(HanZiRenderVo vo, HanZiGenOptions options, int index) {
+    private static String toStroke(HanZiRenderPathBo vo, HanZiGenOptions options, int index) {
         StringBuilder svg = new StringBuilder();
         svg.append("<svg version=\"1.1\" viewBox=\"0 0 1024 1024\" xmlns=\"http://www.w3.org/2000/svg\" " +
-                "width=\"" + options.getSize() + "\" height=\"" + options.getSize() + "\" " +
-                "style=\"border: 1px solid rgb(204, 204, 204); background-color: rgb(238, 238, 238);\">");
+                "width=\"" + options.getSize() + "\" height=\"" + options.getSize() + "\" ");
+        svg.append("style=\"").append(options.getBgStyle()).append("\">");
         if (options.getBgShow()) {
             svg.append(options.getBgStr());
         }
@@ -42,7 +42,7 @@ public class HanZiRender {
         }
         svg.append("\n    </style>\n");
 
-        if (options.getBgShow()) {
+        if (options.getOutlineShow()) {
             svg.append("\n<g style=\"opacity: 1;\">\n")
                     .append(StrUtil.join(vo.getOutlinePaths(), "\n"))
                     .append("\n</g>\n");
@@ -87,14 +87,14 @@ public class HanZiRender {
     /**
      * 笔画绘制顺序
      *
-     * @param vo
-     * @param options
+     * @param bo      生成的中间内容
+     * @param options 绘制参数
      * @return
      */
-    public static List<String> toStrokes(HanZiRenderVo vo, HanZiGenOptions options) {
+    public static List<String> toStrokes(HanZiRenderPathBo bo, HanZiGenOptions options) {
         List<String> ans = new ArrayList<>();
-        for (int i = 0; i < vo.getOutlinePaths().size(); i++) {
-            ans.add(toStroke(vo, options, i));
+        for (int i = 0; i < bo.getOutlinePaths().size(); i++) {
+            ans.add(toStroke(bo, options, i));
         }
         return ans;
     }
@@ -103,11 +103,11 @@ public class HanZiRender {
     /**
      * 终态的svg
      *
-     * @param vo
-     * @param options
+     * @param bo      生成的中间内容
+     * @param options 绘制参数
      * @return
      */
-    public static String toSvg(HanZiRenderVo vo, HanZiGenOptions options) {
+    public static String toSvg(HanZiRenderPathBo bo, HanZiGenOptions options) {
         StringBuilder svg = new StringBuilder();
         svg.append("<svg version=\"1.1\" viewBox=\"0 0 1024 1024\" xmlns=\"http://www.w3.org/2000/svg\" " +
                 "width=\"" + options.getSize() + "\" height=\"" + options.getSize() + "\" " +
@@ -125,31 +125,31 @@ public class HanZiRender {
             svg.append(options.getTipStyle());
         }
         if (options.getAnimalShow()) {
-            svg.append(StrUtil.join(vo.getAnimalStyles(), "\n\n"));
+            svg.append(StrUtil.join(bo.getAnimalStyles(), "\n\n"));
         }
         svg.append("\n    </style>\n");
 
-        if (options.getBgShow()) {
+        if (options.getOutlineShow()) {
             svg.append("\n<g style=\"opacity: 1;\">\n")
-                    .append(StrUtil.join(vo.getOutlinePaths(), "\n"))
+                    .append(StrUtil.join(bo.getOutlinePaths(), "\n"))
                     .append("\n</g>\n");
         }
 
         if (options.getAnimalShow()) {
             svg.append("\n<g style=\"opacity: 1;\">\n")
-                    .append(StrUtil.join(vo.getAnimalPaths(), "\n"))
+                    .append(StrUtil.join(bo.getAnimalPaths(), "\n"))
                     .append("\n</g>\n");
         }
 
         if (options.getBiHuaShow()) {
             svg.append("\n<g style=\"opacity: 1;\">\n")
-                    .append(StrUtil.join(vo.getBiHuaPaths(), "\n"))
+                    .append(StrUtil.join(bo.getBiHuaPaths(), "\n"))
                     .append("\n</g>\n");
         }
 
         if (options.getTipShow()) {
             svg.append("\n<g style=\"opacity: 1;\">\n")
-                    .append(StrUtil.join(vo.getTipPaths(), "\n"))
+                    .append(StrUtil.join(bo.getTipPaths(), "\n"))
                     .append("\n</g>\n");
         }
         svg.append("\n  </g>\n" +

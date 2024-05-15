@@ -2,7 +2,7 @@ package com.github.liuyueyi.quick.hanzi.util;
 
 import com.github.liuyueyi.quick.hanzi.module.HanZiGenOptions;
 import com.github.liuyueyi.quick.hanzi.module.HanZiRenderContents;
-import com.github.liuyueyi.quick.hanzi.module.HanZiRenderVo;
+import com.github.liuyueyi.quick.hanzi.module.HanZiRenderPathBo;
 import com.github.liuyueyi.quick.hanzi.module.Point;
 
 import java.util.ArrayList;
@@ -87,6 +87,14 @@ public class HanZiGenUtil {
         return list;
     }
 
+    /**
+     * 解析笔画绘制实体
+     * - 可以使用json序列化工具进行解析
+     * - 这里为了不额外引入外部依赖，做了一个简单的字符串解析
+     *
+     * @param content json格式
+     * @return
+     */
     public static HanZiRenderContents parseRenderContent(String content) {
         int charIndex = content.indexOf("character\"") + "character\"".length();
         charIndex = content.indexOf("\"", charIndex) + 1;
@@ -147,7 +155,7 @@ public class HanZiGenUtil {
         return contents;
     }
 
-    public static HanZiRenderVo buildAniSvg(HanZiRenderContents contents, HanZiGenOptions options) {
+    public static HanZiRenderPathBo buildAniSvg(HanZiRenderContents contents, HanZiGenOptions options) {
         List<String> strokes = contents.getStrokes();
         int biHuaNum = strokes.size();
         List<String> outlinePath = new ArrayList<>(biHuaNum);
@@ -203,7 +211,7 @@ public class HanZiGenUtil {
             index += 1;
         }
 
-        HanZiRenderVo vo = new HanZiRenderVo();
+        HanZiRenderPathBo vo = new HanZiRenderPathBo();
         vo.setAnimalPaths(animalPath)
                 .setAnimalStyles(animalStyles)
                 .setBiHuaPaths(biHuaPath)
