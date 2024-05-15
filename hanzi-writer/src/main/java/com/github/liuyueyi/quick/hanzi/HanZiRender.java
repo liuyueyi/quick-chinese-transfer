@@ -92,7 +92,7 @@ public class HanZiRender {
      * @return
      */
     public static List<String> toStrokes(HanZiRenderPathBo bo, HanZiGenOptions options) {
-        List<String> ans = new ArrayList<>();
+        List<String> ans = new ArrayList<>(bo.getOutlinePaths().size());
         for (int i = 0; i < bo.getOutlinePaths().size(); i++) {
             ans.add(toStroke(bo, options, i));
         }
