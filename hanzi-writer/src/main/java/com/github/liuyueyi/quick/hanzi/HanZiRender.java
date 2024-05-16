@@ -27,18 +27,18 @@ public class HanZiRender {
         StringBuilder svg = new StringBuilder();
         svg.append("<svg version=\"1.1\" viewBox=\"0 0 1024 1024\" xmlns=\"http://www.w3.org/2000/svg\" " +
                 "width=\"" + options.getSize() + "\" height=\"" + options.getSize() + "\" ");
-        svg.append("style=\"").append(options.getBgStyle()).append("\">");
+        svg.append("style=\"").append(options.getSvgStyle()).append("\">");
         if (options.getBgShow()) {
-            svg.append(options.getBgStr());
+            svg.append(options.getBg());
         }
 
         svg.append("\n  <g transform=\"scale(1, -1) translate(0, -900)\">\n" +
                 "\n    <style type=\"text/css\">\n");
-        if (options.getBiHuaShow()) {
-            svg.append(options.getBiHuaStyle());
+        if (options.getStrokeNumShow()) {
+            svg.append(options.getStrokeNumStyle());
         }
-        if (options.getTipShow()) {
-            svg.append(options.getTipStyle());
+        if (options.getWriteTipShow()) {
+            svg.append(options.getWriteTipStyle());
         }
         svg.append("\n    </style>\n");
 
@@ -53,7 +53,7 @@ public class HanZiRender {
             String animalPath = vo.getOutlinePaths().get(i);
             if (i == index) {
                 // 当前显示的这一笔，使用高亮颜色
-                animalPath = animalPath.replace(options.getOutlineColor(), options.getAnimalColor());
+                animalPath = animalPath.replace(options.getOutlineColor(), options.getAnimateColor());
                 svg.append(animalPath).append("\n");
             } else if (i == index - 1) {
                 // 前面一笔，使用中间过渡色
@@ -67,13 +67,13 @@ public class HanZiRender {
         }
         svg.append("\n</g>\n");
 
-        if (options.getBiHuaShow()) {
+        if (options.getStrokeNumShow()) {
             svg.append("\n<g style=\"opacity: 1;\">\n")
-                    .append(StrUtil.join(vo.getBiHuaPaths(), "\n"))
+                    .append(StrUtil.join(vo.getStrokePaths(), "\n"))
                     .append("\n</g>\n");
         }
 
-        if (options.getTipShow()) {
+        if (options.getWriteTipShow()) {
             svg.append("\n<g style=\"opacity: 1;\">\n")
                     .append(StrUtil.join(vo.getTipPaths(), "\n"))
                     .append("\n</g>\n");
@@ -92,7 +92,7 @@ public class HanZiRender {
      * @return
      */
     public static List<String> toStrokes(HanZiRenderPathBo bo, HanZiGenOptions options) {
-        List<String> ans = new ArrayList<>();
+        List<String> ans = new ArrayList<>(bo.getOutlinePaths().size());
         for (int i = 0; i < bo.getOutlinePaths().size(); i++) {
             ans.add(toStroke(bo, options, i));
         }
@@ -113,18 +113,18 @@ public class HanZiRender {
                 "width=\"" + options.getSize() + "\" height=\"" + options.getSize() + "\" " +
                 "style=\"border: 1px solid rgb(204, 204, 204); background-color: rgb(238, 238, 238);\">");
         if (options.getBgShow()) {
-            svg.append(options.getBgStr());
+            svg.append(options.getBg());
         }
 
         svg.append("\n  <g transform=\"scale(1, -1) translate(0, -900)\">\n" +
                 "\n    <style type=\"text/css\">");
-        if (options.getBiHuaShow()) {
-            svg.append(options.getBiHuaStyle());
+        if (options.getStrokeNumShow()) {
+            svg.append(options.getStrokeNumStyle());
         }
-        if (options.getTipShow()) {
-            svg.append(options.getTipStyle());
+        if (options.getWriteTipShow()) {
+            svg.append(options.getWriteTipStyle());
         }
-        if (options.getAnimalShow()) {
+        if (options.getAnimateShow()) {
             svg.append(StrUtil.join(bo.getAnimalStyles(), "\n\n"));
         }
         svg.append("\n    </style>\n");
@@ -135,19 +135,19 @@ public class HanZiRender {
                     .append("\n</g>\n");
         }
 
-        if (options.getAnimalShow()) {
+        if (options.getAnimateShow()) {
             svg.append("\n<g style=\"opacity: 1;\">\n")
                     .append(StrUtil.join(bo.getAnimalPaths(), "\n"))
                     .append("\n</g>\n");
         }
 
-        if (options.getBiHuaShow()) {
+        if (options.getStrokeNumShow()) {
             svg.append("\n<g style=\"opacity: 1;\">\n")
-                    .append(StrUtil.join(bo.getBiHuaPaths(), "\n"))
+                    .append(StrUtil.join(bo.getStrokePaths(), "\n"))
                     .append("\n</g>\n");
         }
 
-        if (options.getTipShow()) {
+        if (options.getWriteTipShow()) {
             svg.append("\n<g style=\"opacity: 1;\">\n")
                     .append(StrUtil.join(bo.getTipPaths(), "\n"))
                     .append("\n</g>\n");

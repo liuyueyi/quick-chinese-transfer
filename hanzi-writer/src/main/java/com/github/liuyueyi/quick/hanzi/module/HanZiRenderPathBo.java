@@ -16,13 +16,13 @@ public class HanZiRenderPathBo {
 
     private List<String> tipPaths;
 
-    private List<String> biHuaPaths;
+    private List<String> strokePaths;
 
     public List<String> getAnimalStyles() {
         return animalStyles;
     }
 
-    public HanZiRenderPathBo setAnimalStyles(List<String> animalStyles) {
+    public HanZiRenderPathBo setAnimateStyles(List<String> animalStyles) {
         this.animalStyles = animalStyles;
         return this;
     }
@@ -40,7 +40,7 @@ public class HanZiRenderPathBo {
         return animalPaths;
     }
 
-    public HanZiRenderPathBo setAnimalPaths(List<String> animalPaths) {
+    public HanZiRenderPathBo setAnimatePaths(List<String> animalPaths) {
         this.animalPaths = animalPaths;
         return this;
     }
@@ -54,23 +54,23 @@ public class HanZiRenderPathBo {
         return this;
     }
 
-    public List<String> getBiHuaPaths() {
-        return biHuaPaths;
+    public List<String> getStrokePaths() {
+        return strokePaths;
     }
 
-    public HanZiRenderPathBo setBiHuaPaths(List<String> biHuaPaths) {
-        this.biHuaPaths = biHuaPaths;
+    public HanZiRenderPathBo setStrokePaths(List<String> strokePaths) {
+        this.strokePaths = strokePaths;
         return this;
     }
 
     @Override
     public String toString() {
         return "HanZiRenderVo{" +
-                "animalStyles=" + animalStyles +
+                "animateStyles=" + animalStyles +
                 ", outlinePaths=" + outlinePaths +
-                ", animalPaths=" + animalPaths +
+                ", animatePaths=" + animalPaths +
                 ", tipPaths=" + tipPaths +
-                ", biHuaPaths=" + biHuaPaths +
+                ", strokePaths=" + strokePaths +
                 '}';
     }
 }

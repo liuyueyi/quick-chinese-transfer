@@ -15,10 +15,11 @@ public class HanZiWriterTest {
         HanZiRenderResultVo vo = HanZiSvgGenerator
                 .newGenerator("帅")
                 .setRenderStyle(RenderStyleEnum.TOTAL)
-                .setBiHuaShow(true)
-                .setAnimalShow(true)
+                .setStrokeNumShow(true)
+                .setAnimateShow(true)
                 .setOutlineShow(true)
-                .setTipShow(true)
+                .setWriteTipShow(true)
+                .setBgShow(true)
                 .toSvgs();
 
         String svg = vo.getSvg();

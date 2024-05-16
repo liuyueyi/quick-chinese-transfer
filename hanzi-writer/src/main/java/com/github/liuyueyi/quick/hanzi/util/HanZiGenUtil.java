@@ -167,22 +167,22 @@ public class HanZiGenUtil {
             index += 1;
         }
 
-        List<String> animalPath = new ArrayList<>(biHuaNum);
-        List<String> animalStyles = new ArrayList<>(biHuaNum);
-        List<String> biHuaPath = new ArrayList<>(biHuaNum);
+        List<String> animatePath = new ArrayList<>(biHuaNum);
+        List<String> animateStyles = new ArrayList<>(biHuaNum);
+        List<String> strokePath = new ArrayList<>(biHuaNum);
         List<String> tipPath = new ArrayList<>(biHuaNum);
         index = 0;
         for (List<Point> pointList : contents.getMedians()) {
             String path = buildPathStr(pointList, false);
             int dash = dashArray(pointList) + 128;
-            animalPath.add(String.format("%s\n\t\t\t<path clip-path=\"url(#clip-%d)\" d=\"%s\" fill=\"none\" id=\"animation-%d\" stroke-dasharray=\"%d %d\" stroke-linecap=\"round\" class='ani-tag %s'></path>"
-                    , tmpAnimalClipPath.get(index), index, path, index, dash, dash * 2, options.getAnimalShow() ? "animated" : ""));
+            animatePath.add(String.format("%s\n\t\t\t<path clip-path=\"url(#clip-%d)\" d=\"%s\" fill=\"none\" id=\"animation-%d\" stroke-dasharray=\"%d %d\" stroke-linecap=\"round\" class='ani-tag %s'></path>"
+                    , tmpAnimalClipPath.get(index), index, path, index, dash, dash * 2, options.getAnimateShow() ? "animated" : ""));
 
 
-            float seconds = options.getAnimalSeconds();
-            animalStyles.add("        @keyframes keyframes" + index + " {\n" +
+            float seconds = options.getAnimateSeconds();
+            animateStyles.add("        @keyframes keyframes" + index + " {\n" +
                     "          from {\n" +
-                    "            stroke: " + options.getAnimalColor() + ";\n" +
+                    "            stroke: " + options.getAnimateColor() + ";\n" +
                     "            stroke-dashoffset: " + (dash + 128) + ";\n" +
                     "            stroke-width: 128;\n" +
                     "          }\n" +
@@ -204,7 +204,7 @@ public class HanZiGenUtil {
                     "        }");
 
 
-            biHuaPath.add(String.format("\t\t\t<text x=\"%d\" y=\"%d\" style=\"transform-origin:%dpx %dpx; transform:scale(1,-1);\">%d</text>",
+            strokePath.add(String.format("\t\t\t<text x=\"%d\" y=\"%d\" style=\"transform-origin:%dpx %dpx; transform:scale(1,-1);\">%d</text>",
                     pointList.get(0).x, pointList.get(0).y, pointList.get(0).x, pointList.get(0).y, index + 1));
 
             tipPath.add(String.format("\t\t\t<path d=\"%s\" class=\"median-stroke\"></path>", path));
@@ -212,9 +212,9 @@ public class HanZiGenUtil {
         }
 
         HanZiRenderPathBo vo = new HanZiRenderPathBo();
-        vo.setAnimalPaths(animalPath)
-                .setAnimalStyles(animalStyles)
-                .setBiHuaPaths(biHuaPath)
+        vo.setAnimatePaths(animatePath)
+                .setAnimateStyles(animateStyles)
+                .setStrokePaths(strokePath)
                 .setOutlinePaths(outlinePath)
                 .setTipPaths(tipPath);
         return vo;

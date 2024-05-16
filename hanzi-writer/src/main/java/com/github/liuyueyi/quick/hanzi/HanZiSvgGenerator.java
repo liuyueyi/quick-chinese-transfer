@@ -40,14 +40,24 @@ public class HanZiSvgGenerator {
             return this;
         }
 
+        public SvgGenBuilder setSvgStyle(String svgStyle) {
+            options.setSvgStyle(svgStyle);
+            return this;
+        }
+
         public SvgGenBuilder setBgShow(Boolean bgShow) {
             options.setBgShow(bgShow);
             return this;
         }
 
-
-        public SvgGenBuilder setBgStr(String bgStr) {
-            options.setBgStr(bgStr);
+        /**
+         * 背景田字格
+         *
+         * @param bgStr
+         * @return
+         */
+        public SvgGenBuilder setBg(String bgStr) {
+            options.setBg(bgStr);
             return this;
         }
 
@@ -63,8 +73,8 @@ public class HanZiSvgGenerator {
         }
 
 
-        public SvgGenBuilder setAnimalShow(Boolean animalShow) {
-            options.setAnimalShow(animalShow);
+        public SvgGenBuilder setAnimateShow(Boolean animateShow) {
+            options.setAnimateShow(animateShow);
             return this;
         }
 
@@ -78,34 +88,34 @@ public class HanZiSvgGenerator {
             return this;
         }
 
-        public SvgGenBuilder setAnimalColor(String animalColor) {
-            options.setAnimalColor(animalColor);
+        public SvgGenBuilder setAnimateColor(String animalColor) {
+            options.setAnimateColor(animalColor);
             return this;
         }
 
-        public SvgGenBuilder setTipShow(Boolean tipShow) {
-            options.setTipShow(tipShow);
+        public SvgGenBuilder setWriteTipShow(Boolean tipShow) {
+            options.setWriteTipShow(tipShow);
             return this;
         }
 
-        public SvgGenBuilder setTipStyle(String tipStyle) {
-            options.setTipStyle(tipStyle);
+        public SvgGenBuilder setWriteTipStyle(String tipStyle) {
+            options.setWriteTipStyle(tipStyle);
             return this;
         }
 
 
-        public SvgGenBuilder setBiHuaShow(Boolean biHuaShow) {
-            options.setBiHuaShow(biHuaShow);
+        public SvgGenBuilder setStrokeNumShow(Boolean biHuaShow) {
+            options.setStrokeNumShow(biHuaShow);
             return this;
         }
 
-        public SvgGenBuilder setBiHuaStyle(String biHuaStyle) {
-            options.setBiHuaStyle(biHuaStyle);
+        public SvgGenBuilder setStrokeNumStyle(String biHuaStyle) {
+            options.setStrokeNumStyle(biHuaStyle);
             return this;
         }
 
-        public SvgGenBuilder setAnimalSeconds(Float animalSeconds) {
-            options.setAnimalSeconds(animalSeconds);
+        public SvgGenBuilder setAnimateSeconds(Float animalSeconds) {
+            options.setAnimateSeconds(animalSeconds);
             return this;
         }
 
