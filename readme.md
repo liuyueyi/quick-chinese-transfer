@@ -36,7 +36,7 @@
 <dependency>
     <groupId>com.github.liuyueyi</groupId>
     <artifactId>quick-transfer-core</artifactId>
-    <version>0.2.14</version>
+    <version>0.2.15</version>
 </dependency>
 ```
 
@@ -61,7 +61,7 @@ implementation 'com.github.liuyueyi:quick-transfer-core:0.2.14'
 <dependency>
 <groupId>com.github.liuyueyi.quick-chinese-transfer</groupId>
 <artifactId>quick-transfer-core</artifactId>
-<version>0.2.14</version>
+<version>0.2.15</version>
 </dependency>
 ```
 
@@ -76,7 +76,7 @@ allprojects {
 }
 
 dependencies {
-    implementation 'com.github.liuyueyi.quick-chinese-transfer:quick-transfer-core:0.2.11'
+    implementation 'com.github.liuyueyi.quick-chinese-transfer:quick-transfer-core:0.2.15'
 }
 ```
 
@@ -155,6 +155,8 @@ ChineseUtils.transfer("一灰灰blog",TransType.SIMPLE_TO_TRADITIONAL);
 
 ### 版本说明
 
+- 0.2.15
+    - [#23 繁简转换问题](https://github.com/liuyueyi/quick-chinese-transfer/issues/23)
 - 0.2.14
     - [#17 繁简转换问题](https://github.com/liuyueyi/quick-chinese-transfer/issues/17)
     - [#19 繁简转换问题](https://github.com/liuyueyi/quick-chinese-transfer/issues/19)
