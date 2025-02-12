@@ -3,7 +3,13 @@ package com.github.liuyueyi.quick.transfer.dictionary;
 import com.github.liuyueyi.quick.transfer.Trie;
 import com.github.liuyueyi.quick.transfer.TrieNode;
 
-import java.io.*;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.PushbackReader;
+import java.io.Reader;
+import java.io.StringReader;
+import java.io.StringWriter;
+import java.io.Writer;
 import java.util.Map;
 
 /**
@@ -90,4 +96,21 @@ public class BasicDictionary {
 
     }
 
+
+    public void remove(String key) {
+        if (key.length() == 1) {
+            charMap.remove(key.charAt(0));
+        } else {
+            // 添加过滤词，实际的效果就是自己不替换
+            dict.add(key, key);
+        }
+    }
+
+    public void add(String key, String value) {
+        if (key.length() == 1 && value.length() == 1) {
+            charMap.put(key.charAt(0), value.charAt(0));
+        } else {
+            dict.add(key, value);
+        }
+    }
 }

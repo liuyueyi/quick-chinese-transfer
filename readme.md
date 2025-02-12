@@ -153,8 +153,43 @@ ChineseUtils封装了通用的字体转换接口，可以直接通过下面的�
 ChineseUtils.transfer("一灰灰blog",TransType.SIMPLE_TO_TRADITIONAL);
 ```
 
-### 版本说明
+**加载自定义转换词典**
 
+> 若有一些自定义的转换词典，希望加载到转换词典中，可以调用下面的方法进行初始化
+
+在 0.2.16 以及之后的版本中，提供了自定义词典加载功能，使用姿势
+
+```java
+Map<String, String> map = new HashMap<>();
+map.put("发展国家", "發达國家");
+ChineseUtils.loadAdditionalDict(TransType.SIMPLE_TO_TRADITIONAL, map);
+```
+
+**加载不参与转换的词典**
+
+> 若自带的转换词典不满足需求，可以使用下面的方式将不参与转换的词加入词典
+
+在 0.2.16 以及之后的版本中，提供了自定义过滤词库加载功能，使用姿势如下
+
+```java
+// 简繁转换中，我们不希望将 国 -> 转换为 國， 不希望将 发展国家 转换为 發展國家
+ChineseUtils.loadExcludeDict(TransType.SIMPLE_TO_TRADITIONAL, Arrays.asList("发展国家", "国"));
+
+// 验证示例:
+System.out.println("加载自定义词典后：简=>繁 ==>" + ChineseUtils.s2t("中华人民共和国目前还处于发展国家行列，但他依然在快速发展中"));
+
+// 输出内容为： 加载自定义过滤词后：简=>繁 ==>中華人民共和国目前還處於发展国家行列，但他依然在快速發展中
+```
+
+上面适用于指定具体的某种转换类型，也可以使用下面的方式将不参与转换的词加入全局的转换中，这样实现不管是什么类型的转换，都维持原状
+
+```java
+ChineseUtils.loadExcludeDict(Arrays.asList("发展国家", "国"));
+```
+
+### 版本说明
+- 0.2.16
+    - [#18 新增自定义词库加载，自定义排除词加载](https://github.com/liuyueyi/quick-chinese-transfer/issues/18)
 - 0.2.15
     - [#23 繁简转换问题](https://github.com/liuyueyi/quick-chinese-transfer/issues/23)
 - 0.2.14
