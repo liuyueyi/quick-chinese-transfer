@@ -36,7 +36,7 @@
 <dependency>
     <groupId>com.github.liuyueyi</groupId>
     <artifactId>quick-transfer-core</artifactId>
-    <version>0.2.15</version>
+    <version>0.2.16</version>
 </dependency>
 ```
 
@@ -44,7 +44,7 @@
 
 ```gradle
 // https://mvnrepository.com/artifact/com.github.liuyueyi/quick-transfer-core
-implementation 'com.github.liuyueyi:quick-transfer-core:0.2.14'
+implementation 'com.github.liuyueyi:quick-transfer-core:0.2.16'
 ```
 
 **使用jitpack导入依赖**
@@ -59,9 +59,9 @@ implementation 'com.github.liuyueyi:quick-transfer-core:0.2.14'
 </repositories>
 
 <dependency>
-<groupId>com.github.liuyueyi.quick-chinese-transfer</groupId>
-<artifactId>quick-transfer-core</artifactId>
-<version>0.2.15</version>
+  <groupId>com.github.liuyueyi.quick-chinese-transfer</groupId>
+  <artifactId>quick-transfer-core</artifactId>
+  <version>0.2.16</version>
 </dependency>
 ```
 
@@ -76,7 +76,7 @@ allprojects {
 }
 
 dependencies {
-    implementation 'com.github.liuyueyi.quick-chinese-transfer:quick-transfer-core:0.2.15'
+    implementation 'com.github.liuyueyi.quick-chinese-transfer:quick-transfer-core:0.2.16'
 }
 ```
 
@@ -140,9 +140,7 @@ preLoad(true,TransType.SIMPLE_TO_TRADITIONAL, TransType.TRADITIONAL_TO_SIMPLE);
 ChineseUtils.unLoad(TransType.values());
 
 // 卸载简繁互转词典
-        ChineseUtils.
-
-unLoad(TransType.SIMPLE_TO_TRADITIONAL, TransType.TRADITIONAL_TO_SIMPLE);
+ChineseUtils.unLoad(TransType.SIMPLE_TO_TRADITIONAL, TransType.TRADITIONAL_TO_SIMPLE);
 ```
 
 **转换**
@@ -176,9 +174,10 @@ ChineseUtils.loadAdditionalDict(TransType.SIMPLE_TO_TRADITIONAL, map);
 ChineseUtils.loadExcludeDict(TransType.SIMPLE_TO_TRADITIONAL, Arrays.asList("发展国家", "国"));
 
 // 验证示例:
-System.out.println("加载自定义词典后：简=>繁 ==>" + ChineseUtils.s2t("中华人民共和国目前还处于发展国家行列，但他依然在快速发展中"));
+System.out.println("加载后：简=>繁 ==>" 
+        + ChineseUtils.s2t("中华人民共和国目前还处于发展国家行列，但他依然在快速发展中"));
 
-// 输出内容为： 加载自定义过滤词后：简=>繁 ==>中華人民共和国目前還處於发展国家行列，但他依然在快速發展中
+// 输出内容为： 加载后：简=>繁 ==>中華人民共和国目前還處於发展国家行列，但他依然在快速發展中
 ```
 
 上面适用于指定具体的某种转换类型，也可以使用下面的方式将不参与转换的词加入全局的转换中，这样实现不管是什么类型的转换，都维持原状
