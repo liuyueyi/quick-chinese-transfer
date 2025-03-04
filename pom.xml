@@ -172,12 +172,12 @@
         <repository>
             <id>github</id>
             <name>GitHub Packages</name>
-            <url>https://maven.pkg.github.com/liuyueyi</url>
+            <url>https://maven.pkg.github.com/liuyueyi/quick-chinese-transfer</url>
         </repository>
         <snapshotRepository>
             <id>github-snapshot</id>
             <name>GitHub Packages Snapshot</name>
-            <url>https://maven.pkg.github.com/liuyueyi</url>
+            <url>https://maven.pkg.github.com/liuyueyi/quick-chinese-transfer</url>
         </snapshotRepository>
     </distributionManagement>
 
