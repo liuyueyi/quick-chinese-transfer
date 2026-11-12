@@ -21,6 +21,10 @@ public enum TransType {
      */
     SIMPLE_TO_TAIWAN("s2tw"),
     /**
+     * 简体转台湾繁体（字形变体 + 台湾常用词汇，对应 OpenCC s2twp.json）
+     */
+    SIMPLE_TO_TAIWAN_PHRASE("s2twp"),
+    /**
      * 繁体转简体
      */
     TRADITIONAL_TO_SIMPLE("t2s"),
@@ -32,7 +36,13 @@ public enum TransType {
     /**
      * 台湾转简体
      */
-    TAIWAN_TO_SIMPLE("tw2s");
+    TAIWAN_TO_SIMPLE("tw2s"),
+
+    /**
+     * 台湾繁体转简体（台湾常用词汇，对应 OpenCC tw2sp.json）
+     */
+    TAIWAN_PHRASE_TO_SIMPLE("tw2sp");
+    ;
 
     private final String type;
 

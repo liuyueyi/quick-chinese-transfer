@@ -71,6 +71,10 @@ public class DictionaryContainer {
                 case SIMPLE_TO_TAIWAN:
                     dictionary = DictionaryFactory.loadSecondDictionary(getDictionary(TransType.SIMPLE_TO_TRADITIONAL), "tc/t2tw.txt", false);
                     break;
+                case SIMPLE_TO_TAIWAN_PHRASE:
+                    // 台湾字形变体 + 台湾常用词汇（OpenCC s2twp.json 语义）
+                    dictionary = DictionaryFactory.loadSecondDictionary(getDictionary(TransType.SIMPLE_TO_TRADITIONAL), "tc/t2twp.txt", false);
+                    break;
                 case TRADITIONAL_TO_SIMPLE:
                     dictionary = DictionaryFactory.loadDictionary("tc/t2s.txt", false);
                     break;
@@ -79,6 +83,9 @@ public class DictionaryContainer {
                     break;
                 case TAIWAN_TO_SIMPLE:
                     dictionary = DictionaryFactory.loadSecondDictionary(getDictionary(TransType.TRADITIONAL_TO_SIMPLE), "tc/t2tw.txt", true);
+                    break;
+                case TAIWAN_PHRASE_TO_SIMPLE:
+                    dictionary = DictionaryFactory.loadSecondDictionary(getDictionary(TransType.TRADITIONAL_TO_SIMPLE), "tc/t2twp.txt", true);
                     break;
                 default:
                     throw new IllegalArgumentException("暂不支持转化方式" + transType);

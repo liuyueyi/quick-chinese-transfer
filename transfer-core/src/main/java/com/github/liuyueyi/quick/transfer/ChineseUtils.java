@@ -134,6 +134,18 @@ public class ChineseUtils {
     }
 
     /**
+     * 简体转台湾繁体（字形变体 + 台湾常用词汇，对应 OpenCC s2twp）
+     * <p>
+     * 在 {@link #s2tw(String)} 字形转换的基础上，额外应用台湾常用词汇转换，例如：软件 -> 軟體
+     *
+     * @param content
+     * @return
+     */
+    public static String s2twp(String content) {
+        return DictionaryContainer.getInstance().getDictionary(TransType.SIMPLE_TO_TAIWAN_PHRASE).convert(content);
+    }
+
+    /**
      * 繁体转简体
      *
      * @param content
