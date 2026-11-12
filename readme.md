@@ -16,6 +16,10 @@
 
 简体中文，繁体中文，香港繁体，台湾繁体 相互转换的Java库
 
+> 台湾繁体提供两种转换粒度：
+> - `ChineseUtils.s2tw(...)`：简体 → 台湾繁体（**仅字形变体**，对应 OpenCC `s2tw.json`），如 `里 → 裡`、`麪 → 麵`
+> - `ChineseUtils.s2twp(...)`：简体 → 台湾繁体（**字形变体 + 台湾常用词汇**，对应 OpenCC `s2twp.json`），如 `软件 → 軟體`
+
 本项目主要来自于
 
 - [https://github.com/hankcs/HanLP](https://github.com/hankcs/HanLP)
@@ -110,6 +114,17 @@ hk2s -->这斜月三星洞…… 长寿面，孙悟空，猪八戒，唐僧，�
 tw2s -->这斜月三星洞…… 长寿面，孙悟空，猪八戒，唐僧，沙和尚，白龙马，李靖，托塔天王, 戏说西游，许多人都这样说，收拾一下，拾金不昧；才=才
 ```
 
+> 注意：`s2tw` 与 `s2twp` 的区别在于是否进行台湾常用词汇转换。`s2tw` 只做字形变体（如 `里→裡`），不会把 `軟件` 改成 `軟體`；
+> `s2twp` 在字形的基础上额外应用台湾词汇（如 `軟件→軟體`、`软件→軟體`）。
+
+```java
+// 台湾字形转换（s2tw）
+System.out.println(ChineseUtils.s2tw("软件里面"));   // 軟件裡面
+// 台湾字形 + 词汇转换（s2twp）
+System.out.println(ChineseUtils.s2twp("软件里面"));  // 軟體裡面
+```
+
+
 ### 高性能接入
 
 **词典预加载**
@@ -187,6 +202,12 @@ ChineseUtils.loadExcludeDict(Arrays.asList("发展国家", "国"));
 ```
 
 ### 版本说明
+- 0.2.18
+    - 新增 `s2twp`（简体→台湾繁体，字形 + 台湾常用词汇，对应 OpenCC `s2twp.json`）
+    - [我的阅读里「新力」被自动转换成「索尼」 · Issue #37 · liuyueyi/quick-chinese-transfer](https://github.com/liuyueyi/quick-chinese-transfer/issues/37)
+    - [繁转简：多士- >吐司 数位->数码 · Issue #38 · liuyueyi/quick-chinese-transfer](https://github.com/liuyueyi/quick-chinese-transfer/issues/38)
+    - [希望新增（简体 -> 台湾正体字形） · Issue #41 · liuyueyi/quick-chinese-transfer](https://github.com/liuyueyi/quick-chinese-transfer/issues/41)
+
 - 0.2.17
     - [#31「棋圣」和「碁圣」繁体转简体问题处理](https://github.com/liuyueyi/quick-chinese-transfer/issues/31)
     - [#26 繁体转简体会将“教廷”转换为“梵蒂冈”](https://github.com/liuyueyi/quick-chinese-transfer/issues/26)
@@ -242,6 +263,8 @@ ChineseUtils.loadExcludeDict(Arrays.asList("发展国家", "国"));
 
 - [https://github.com/chanind/hanzi-writer](https://github.com/chanind/hanzi-writer)
 
+基于这个库实现的 `查笔顺` APP，可以在 GooglePlay 上直接下载体验啦 
+
 ### 使用姿势
 
 **maven依赖**
@@ -253,7 +276,7 @@ ChineseUtils.loadExcludeDict(Arrays.asList("发展国家", "国"));
 <dependency>
     <groupId>com.github.liuyueyi</groupId>
     <artifactId>hanzi-writer</artifactId>
-    <version>0.1.0</version>
+    <version>0.1.1</version>
 </dependency>
 ```
 
@@ -261,7 +284,7 @@ ChineseUtils.loadExcludeDict(Arrays.asList("发展国家", "国"));
 
 ```gradle
 // https://mvnrepository.com/artifact/com.github.liuyueyi/quick-transfer-core
-implementation 'com.github.liuyueyi:hanzi-writer:0.1.0'
+implementation 'com.github.liuyueyi:hanzi-writer:0.1.1'
 ```
 
 **使用jitpack导入依赖**
@@ -278,7 +301,7 @@ implementation 'com.github.liuyueyi:hanzi-writer:0.1.0'
 <dependency>
 <groupId>com.github.liuyueyi.quick-chinese-transfer</groupId>
 <artifactId>hanzi-writer</artifactId>
-<version>0.2.14</version>
+<version>0.2.17</version>
 </dependency>
 ```
 
@@ -293,7 +316,7 @@ allprojects {
 }
 
 dependencies {
-    implementation 'com.github.liuyueyi.quick-chinese-transfer:hanzi-writer:0.2.14'
+    implementation 'com.github.liuyueyi.quick-chinese-transfer:hanzi-writer:0.2.17'
 }
 ```
 
@@ -347,5 +370,18 @@ List<String> strokeSvgList = vo.getStrokes();
 
 ### 版本说明
 
+- 0.1.1
+  - 新增GitHub Action，实现自动上传jar包到中央仓库
 - 0.1.0
-    - 完成初始版本
+  - 完成初始版本
+
+## 中央仓库上传说明
+
+新版中央仓管理地址： [central.sonatype.com](https://central.sonatype.com/)
+
+基于GitHub Action实现自动上传jar包到中央仓库，由于不同模块版本号不一致，因此这里采用分支的触发方式
+
+1. hanzi: 分支上有变更，表示推送 hanzi-writer 模块到中央仓库
+2. transfer: 分支上有变更，表示推送 transfer-core 模块到中央仓库
+3. release: 分支上有变更，表示整个项目推送到中央仓库
+
