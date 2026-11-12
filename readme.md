@@ -12,6 +12,14 @@
 - [简繁转换](transfer-core)
 - [汉字笔画](hanzi-writer)
 
+基于这个库实现的 `查笔顺` APP，可以在 GooglePlay 上直接下载体验啦
+
+- [GooglePlay Install](https://play.google.com/store/apps/details?id=com.hui.bishun)
+- [Apk Install](https://yss.hhui.top/cc/app/bisun.apk)
+- 在线访问体验：[https://paper.ppai.top/](https://paper.ppai.top/stroke-order)
+
+![](https://imgbed.ppai.top/file/webapp/1783915291071_bishun.webp)
+
 ## 简繁转换 (transfer-core)
 
 简体中文，繁体中文，香港繁体，台湾繁体 相互转换的Java库
@@ -263,7 +271,6 @@ ChineseUtils.loadExcludeDict(Arrays.asList("发展国家", "国"));
 
 - [https://github.com/chanind/hanzi-writer](https://github.com/chanind/hanzi-writer)
 
-基于这个库实现的 `查笔顺` APP，可以在 GooglePlay 上直接下载体验啦 
 
 ### 使用姿势
 
